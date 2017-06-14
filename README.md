@@ -5,7 +5,7 @@ The game is written in Ruby. Use https://rubyinstaller.org/downloads/ on Windows
 
 The game itself can be started by using "ruby Inuhh.rb" in a terminal or by executing "Inuhh Shinvasion.rbw" on Windows.
 
-Controls:
+## Controls:
 
 Move Inuhh left: Left / A
 Move Inuhh right: Right / D
@@ -20,31 +20,31 @@ Display information about current item: F1
 Give up level: Escape
 (Overworld) Trade gems for lifes: 1-5
 
-What can you do in Inuhh Shinvasion?
+## What can you do in Inuhh Shinvasion?
 
 Inuhh Shinvasion is a game containing many secrets and missions. If you complete one mission and open the "Achievements" menu on the starting screen, you'll see a golden embleme before the criterion you managed to beat, for example beating all levels in the game. Try to get all achievements to make everyone jealous!
 
-What are Shi Coins?
+## What are Shi Coins?
 
 In Inuhh Shinvasion several special coins, called Shi Coins, can be found at hidden places. At a certain place it is possible to trade them for helpful things, which may help out in the later game (the game is still possible to beat without them, albeit at a much higher difficulty), so try to find as many as possible of them. In each level segment at least one Shi Coin can be found. Maybe you can even find some other rare objects!
 
-What is the Shipedia?
+## What is the Shipedia?
 
 Another program included is the so called Shipedia, in which you can find detailed information about every enemy in the game. However, you need to type in passwords you can obtain on certain points in the game, to gain access to all information.
 
-Shipedia Controls:
+### Shipedia Controls:
 
 Complete name: Tab
 Enter command or name: Return
 Leave enemy information: Escape
 Scroll: Mouse Wheel
 
-Shipedia Commands:
+### Shipedia Commands:
 
 SORT [PROPERTY]: Sorts enemies by the given property
 DIFF [DIFFICULTY]: Sets the given difficulty as base for the enemy properties
 
-Shipedia Sorting Properties:
+### Shipedia Sorting Properties:
 
 NAME: Name of the enemy
 STRENGTH: Strength of the enemy
@@ -55,4 +55,5 @@ WORLD: The world in which the enemy can be encountered first
 SCORE: The base score of the enemy
 SIZE: The size of the enemy
 
-Shipedia Difficulties: EASY, NORMAL, HARD and DOOM
+### Shipedia Difficulties:
+EASY, NORMAL, HARD and DOOM
