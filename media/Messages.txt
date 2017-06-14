@@ -1,0 +1,661 @@
+>                                          < Approximate text limit, better test for yourself.
+#Message 0000:
+Welcome to the world of Inuhh!
+This is a test!
+#===#
+I hope, this test is working...
+So, let's see.
+#EndMessage
+
+#Message 0001:
+Welcome to the world of Inuhh Shinvasion!
+These signposts can provide you helpful
+information, so just watch out for them.
+#===#
+First a few things:
+Beware of those enemies over there.
+They seem harmless, but only until
+you run into one of them.
+And don't ever think you could
+predict all enemies... they may behave
+very random, so be careful!
+#===#
+Some enemies even try to kill you
+from below. If you're gaining
+height or just standig around, they'll
+crash into you and damage you.
+If you're falling down,
+they're the ones taking damage, though.
+#===#
+More interesting for you are the coins
+scattered in all of the levels.
+Collect 100 of them and you'll
+obtain an additional life.
+#===#
+If you lose a life, you have to restart
+the section in which you died.
+When no more lifes are left, you even
+have to restart the entire level, so
+always keep an eye on your lifes!
+#===#
+Luckily you are quite robust, so you
+don't suddenly lose a life if you kiss
+an ordinary enemy, you just lose some
+energy. If your energy is at zero,
+however, you will lose a life.
+#===#
+You can see your lifes and energy in
+the bottom left corner, as well as your
+coins and your score.
+In the bottom right corner you can see
+your stats, like strength and defense.
+#EndMessage
+
+#Message 0002:
+As you may see, your jumps aren't far
+enough to cross some holes. Running and
+then jumping may help.
+#EndMessage
+
+#Message 0003:
+These gems can give you an extra life,
+so keep your eyes open. Just collect 15
+or more of them and you can pay them
+while on the world map.
+If you have more gems with you, the
+lifes even get cheaper.
+#===#
+Maybe you'll even find some other
+valuable things?
+#EndMessage
+
+#Message 0004:
+Congratulations!
+You found a rare Shi Coin!
+Each Shi Coin can be collected multiple
+times, but it will only be counted as one.
+#===#
+Despite their rareness, only a few persons
+need them, so just wait for someone asking
+for them.
+#EndMessage
+
+#Message 0005:
+Beware of these gaps!
+If you fall into one of them, you will
+die instantly! Even if you are careful,
+an enemy could push you into one.
+#===#
+Also take care of gaps in deep water,
+since they'll kill you as well.
+#EndMessage
+
+#Message 0006:
+Wondering what this is?
+It's a bone, a dog should know that,
+of course. Collect it to heal one point
+of energy. Not the best thing, but hey,
+it tastes nice (at least for dogs).
+#EndMessage
+
+#Message 0007:
+As you see, there isn't only one type
+of enemies. Observe them a little
+bit to find out their behaviour and
+maybe some weak spots.
+#===#
+Also, take care of your energy. Some
+enemies are stronger than others!
+#EndMessage
+
+#Message 0008:
+Welcome to the surfing and diving
+zone! Use high cliffs and deep caves
+at own risk!
+#===#
+...
+Here are absolutely NO secrets, okay?
+Don't try to find some in this
+uninteresting lake! NOTHIN' HERE!
+#EndMessage
+
+#Message 0009:
+You can swim in water, but even in
+there you'll find some enemies.
+Remember that gravity still works
+under water, since the physics
+engine in this game acts weird.
+#EndMessage
+
+#Message 0010:
+You just found a warp.
+Use them to get to other sections of
+this level!
+#EndMessage
+
+#Message 0011:
+Congratulations, if you enter
+this white warp, you beat this level!
+Then another level on the worldmap
+will be unlocked.
+#===#
+If you manage to find a light blue
+warp, consider yourself lucky!
+Light blue warps lead to secret places
+with many secrets... wow!
+#===#
+Remember that you can play each
+beaten level again, so don't worry
+too much if you've left something
+out or didn't find everything.
+#EndMessage
+
+#Message 0012:
+Warps don't always lead to another
+section. Sometimes they can port you
+to another point in the same section.
+Pay attention to their delay, because
+they need a little time to recharge,
+but then teleport you mercilessly
+again, if you are too slow.
+#EndMessage
+
+#Message 0013:
+Some gaps are very thin, so that
+you sometimes don't get in at the
+first try. Just try again some times,
+exercising isn't that bad for your
+figure, so maybe it fits then.
+#EndMessage
+
+#Message 0014:
+House of the Hedgehound
+#===#
+Got some Shi Coins?
+Don't know what to do with 'em?
+Bring them to me, got something
+interesting for you, I think.
+#===#
+Also, take a look at some other
+funny things in my house!
+#EndMessage
+
+#Message 0015:
+Object #2819: Wings
+Collect them to fly around in the
+section you are at the moment, like
+being in water.
+#EndMessage
+
+#Message 0016:
+Object #0001: Hedgehound
+Rare subject who sells interesting
+things for Shi Coins.
+#===#
+Choose one of his offers by pressing
+the number left to it on the keyboard.
+Choose wisely, you cannot undo it!
+To exit the shop, press Return.
+#EndMessage
+
+#Message 0017:
+The weird thing right to you is, as
+you can see, not very nice to you.
+The Shi designed it to spawn a
+certain amount of enemies...
+maybe even an infinite amount?
+#EndMessage
+
+#Message 0018:
+You made it through the world of the
+Cleanbuil Lake! Now you're ready to
+enter the mysterious Dominwood...
+#===#
+Just use the warp right over there
+and soon you are there!
+To go back to this world, you just
+have to go west on the world map.
+#EndMessage
+
+#Message 0019:
+Th15 15 the s00p3r s3cr3t underw4ter
+c4ve 0f C4pt41n S1lverf15h.
+If you find this, please don't steal
+something out of here.
+I don't like such things like theft.
+#===#
+- Note from Admiral Fowenyuhh:
+Too late, brave finder!
+Silverfish is imprisoned and the
+treasure now belongs to the
+holy king of Twoahteh.
+#===#
+Only this weird pedestal boxes
+remain here. If you have enough
+space, you could build up a
+pedestal to reach higher places.
+Space is the key to success!
+- Note end.
+#EndMessage
+
+#Message 0020:
+Some idiots told me something like
+'Beware of the armed Shi!' or so.
+But Shi don't have arms!
+#EndMessage
+
+#Message 0021:
+You are now at a very unknown place
+of the Cleanbuil Lake.
+Only very few know about what
+lies behind the next warp, so
+be VERY careful!
+#===#
+...however I don't know, why this
+signpost is here. I guess it's
+just here for gameplay reasons.
+#EndMessage
+
+#Message 0022:
+Have you found some secret areas yet?
+If not, just visit the Cleanbuil Lake
+again, maybe you find some helpful
+things... or even allies...
+#EndMessage
+
+#Message 0023:
+You're now entering the great
+Dominwood Forest.
+Here you can find some delicious
+fruit which can heal you if you
+eat five of them.
+#===#
+The enemies in this forest are stronger
+than in the lake region, though.
+Some of them try to disguise themselves,
+some other only want to confuse you.
+#EndMessage
+
+#Message 0024:
+Property of the Shi Empire.
+Do not enter!
+#EndMessage
+
+#Message 0025:
+Emergency gun.
+Only for members of the Shi Empire!
+Shoot only with Space!
+#EndMessage
+
+#Message 0026:
+L... will .. myself.
+(Seems a little bit unreadable...)
+#===#
+After my long j....ey through this land
+I dis...ered m..y unknown places.
+But noth... terrified me...re than the
+m...ter, the ..ro..i, dwelling .... and att....ng
+me while I was looking for the sa......y
+of this m....riou...o..st.
+#===#
+I don't know if I can survive the wounds
+it inflicted me. But ... .... you found
+this note, I want y.. to de..at this thing.
+Fr.. ... w...d from this d...erous
+monster n..ody kn..s of!
+#===#
+...vaba
+#EndMessage
+
+#Message 0027:
+Password for Shipedia - World 1:
+
+$pw1
+#EndMessage
+
+#Message 0028:
+Password for Shipedia - World 2:
+
+$pw2
+#EndMessage
+
+#Message 0029:
+Shi Coins found: @total_shi_coins
+
+Mysteriorbs found: @mysteriorbs
+
+Compass pieces found: @compass_pieces
+#EndMessage
+
+#Message 0030:
+Welcome to the Westton Mountain!
+This world won't be as easy as the last
+two worlds, so better look twice if unsure.
+#===#
+The Shi in this world are stronger than
+in the Dominwood, so here might be some
+well guarded hidden place...
+Camouflage isn't that important for the Shi
+anymore, they are now more aggressive and
+will brutally try to eliminate anyone crossing
+their sections.
+#EndMessage
+
+#Message 0031:
+I don't like breaking the fourth wall, but:
+There are some rare objects in this
+game you should use! Some of them,
+like bones, are used instantly.
+Other objects you can carry only
+one at a time, this will be displayed
+then with an appropriate icon.
+#===#
+Commonly there are signposts next to
+those objects, so read them carefully
+before using the objects.
+You can also press F1 to obtain some
+details about those objects and other
+useful things.
+#===#
+Some special objects can be collected
+multiple times, so you can use them
+more than one time. You'll lose them
+all if you're collecting an object
+of another kind, though, so pay attention!
+#EndMessage
+
+#Message 0032:
+Pondton Mail House
+
+As fast as your thoughts!
+#===#
+At least with Pondton Prime.
+#===#
+Maybe.
+#===#
+Maybe not.
+#EndMessage
+
+#Message 0033:
+Pondton City ahead
+#EndMessage
+
+#Message 0034:
+Control building of the Shi Empire.
+Access only for higher Shi!
+#EndMessage
+
+#Message 0035:
+Password for Shipedia - World 3:
+
+$pw3
+#EndMessage
+
+#Message 0036:
+Local research station of the Shi Empire.
+Do not inhale the toxic evaporations!
+They contain dangerous neurotoxins!
+#EndMessage
+
+#Message 0037:
+Westton Shi Base.
+Access only for high ranked Shi!
+Unauthorized entrance will be
+punished harshly!
+#EndMessage
+
+#Message 0038:
+Turboshi 9000.
+Accelerate with Ctrl!
+#EndMessage
+
+#Message 0039:
+Password for Shipedia - World 4:
+
+$pw4
+#EndMessage
+
+#Message 0040:
+Hooray, you beat the Westton Mountain!
+But there are some obscure caves below.
+#===#
+Some enemies here seem familiar,
+but beware of their enormous strength!
+There must be some interesting thing if
+it is guarded that heavily...
+#===#
+Maybe you'll find something that can
+be used to inflict some serious
+damage to the Shi... or something
+entirely different?
+#EndMessage
+
+#Message 0041:
+By pressing Space you can easily reach
+higher positions by placing this pedestal
+below yourself. Never use it if you don't
+have enough space beyond yourself!
+#EndMessage
+
+#Message 0042:
+With wings you can fly around in the
+section as if it was water.
+#EndMessage
+
+#Message 0043:
+These boots are something very special!
+Slip into them to gain a temporal
+boost in speed!
+Unfortunately a really short one...
+#EndMessage
+
+#Message 0044:
+You crushed through the Westton Base!
+But the last obstacle still waits
+for you...
+#===#
+This area is the Shi District of
+the Westton Mountain. The Shi
+working here will do anything to
+destroy you... really anything!
+#===#
+Somewhere in this area has to be
+their mothership, though. If you
+manage to find it you could finally
+stop their invasion! But first you
+must find a way to get to it.
+I can't help you with that.
+#===#
+Also, if you haven't found an
+opportunity to strengthen
+yourself, you should do that
+as soon as possible. The Shi got
+an army which can conquer the
+entire world in no time!
+#EndMessage
+
+#Message 0045:
+You have only your feet to destroy
+your enemies. Maybe you'll need to
+find something more useful.
+#EndMessage
+
+#Message 0046:
+This is the centre of the
+Shi Sanatorium.
+#===#
+Here you will lose the last bits
+of your mind while slowly drowning
+in insanity.
+#===#
+Escape quickly and you'll be save.
+Stay here and look for something
+valuable... and the chances are
+high you will have to stay here
+forever.
+#===#
+If you really want to destroy
+yourself... not my problem.
+I'm just a message board.
+I am already insane. Huehuehue...
+#EndMessage
+
+#Message 0047:
+Password for Shipedia - World 5:
+
+$pw5
+#EndMessage
+
+#Message 0048:
+Pedestal
+
+Space - Placing the pedastel
+
+Note: Never place the pedestal if you stand
+directly under solids.
+#EndMessage
+
+#Message 0049:
+Shistol
+
+Space - Shooting
+
+Note: Some walls are a little broken,
+maybe a shot can destroy them.
+#EndMessage
+
+#Message 0049:
+Shizooka
+
+Space - Shooting
+#EndMessage
+
+#Message 0050:
+Shinegun
+
+Space - Shooting
+
+Note: Don't shoot blindly at every enemy.
+Some may notice and shoot back...
+Or even worse...
+#EndMessage
+
+#Message 0051:
+Sand
+
+Space - Placing the sand
+
+Note: Squared sand blocks can suffocate
+you, so pay attention while placing them!
+#EndMessage
+
+#Message 0052:
+Key
+
+Space - Using the key
+
+Note: If you collect another item while
+holding keys you'll lose all keys.
+#EndMessage
+
+#Message 0053:
+Welcome to Horror Island!
+
+You think, the Shi Factory and the Shi
+Sanatorium were hard?
+#===#
+Well, you still beat those levels. So they
+shouldn't be THAT hard, right?
+Wrong.
+This world may be the hardest
+world in this game.
+#===#
+If you are easy frustrated, better give
+up before it's too late. It is not
+worth the pain... or is it?
+#EndMessage
+
+#Message 0054:
+Shirse Riding
+
+Ctrl - Running
+Space - Jumping
+Up - Jumping off the Shirse
+#EndMessage
+
+#Message 0055:
+Wings
+
+Up - Ascending
+
+Note: Fly with the wings like you
+would swim in water. Abysses will
+still kill you, so beware.
+#EndMessage
+
+#Message 0056:
+Boots
+
+Note: Increase your speed for a
+short time to make wider jumps.
+#EndMessage
+
+#Message 0057:
+Flippers
+
+Note: Swim much faster in water.
+#EndMessage
+
+#Message 0058:
+Bat
+
+Space - Swing Bat
+
+Note: Swing the bat to hit some
+enemies. If you don't hit any,
+your use count won't be decreased.
+Some enemies damage other enemies.
+#EndMessage
+
+#Message 0059:
+Ball
+
+Space - Throw ball
+
+Note: Hit enemies with a ball for
+some distance damage.
+#EndMessage
+
+#Message 0060:
+Magic Lamp
+
+Space - Summon Shinny
+
+Note: The summoned Shinny will fully
+obey you and will always follow you.
+Don't hit it too often.
+#EndMessage
+
+#Message 0061:
+Turboshi Riding
+
+Ctrl - Ascending
+Up - Jumping off the Turboshi
+#EndMessage
+
+#Message 0062:
+Swimming Course
+
+Swim as far as you can, smash as many
+Shi as possible and try to collect
+all the sapphires! But don't fall into
+the abyss and don't touch the borders!
+#EndMessage
+
+#Message 0063:
+Herbal Quest
+
+TODO
+#EndMessage
+
+#EndDocument
