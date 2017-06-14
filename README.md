@@ -1,9 +1,19 @@
 # Inuhh-Shinvasion
-A jump'n'run about a dog named Inuhh.
+This game is a jump'n'run about a dog. No plumber, no penguin, no hedgehog. A dog.
+
+## Story
+
+The protagonist is Inuhh, a dog, whose world got invaded by a weird alien race, called "Shi". His goal is, of course, to defeat the Shi empire. This would be easy if the Shi weren't masters of genetics and produced a huge number of variations of themselves. Some have spikes, others are much faster than normal ones, and some are even gigantic. If Inuhh travels through the five worlds of Westton, he may have a chance to expel the Shi from there.
+
+## Instructions and informations
 
 The game is written in Ruby and programmed using the Gosu library. Use [Ruby Installer](https://rubyinstaller.org/downloads/) on Windows and make sure to use at least Ruby Version 2.0. Also follow the instructions on [the Gosu website](https://www.libgosu.org/ruby.html) to install the Gosu library.
 
 The game itself can be started by using "ruby Inuhh.rb" in a terminal or by executing "Inuhh Shinvasion.rbw" on Windows.
+
+Don't expect any music besides some jingles. This game has none. And this is because ~~this game is an experimental avantgarde game which will leave your imagination with the task of creating background music~~ I have no talent and was too lazy to search for free music.
+
+Also despite this game being fully playable, I may add some features in the future, if I have the time and motivation to do so. Also I will of course try to fix any bugs as soon as possible.
 
 ## Controls:
 
