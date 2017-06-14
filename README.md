@@ -1,24 +1,24 @@
 # Inuhh-Shinvasion
 A jump'n'run about a dog named Inuhh.
 
-The game is written in Ruby. Use https://rubyinstaller.org/downloads/ on Windows and make sure to use at least Ruby Version 2.0. Also follow the instructions on https://www.libgosu.org/ruby.html to install the Gosu library which is used by Inuhh Shinvasion.
+The game is written in Ruby and programmed using the Gosu library. Use [Ruby Installer](https://rubyinstaller.org/downloads/) on Windows and make sure to use at least Ruby Version 2.0. Also follow the instructions on [the Gosu website](https://www.libgosu.org/ruby.html) to install the Gosu library.
 
 The game itself can be started by using "ruby Inuhh.rb" in a terminal or by executing "Inuhh Shinvasion.rbw" on Windows.
 
 ## Controls:
 
-Move Inuhh left: Left / A
-Move Inuhh right: Right / D
-Jump: Up / W
-Run: Ctrl / Shift
-Use items: Space
-(Overworld) Toggle HUD: Space
-Read signs, close dialogs: Return
-(Overworld) Enter level: Return
-Pause: P
-Display information about current item: F1
-Give up level: Escape
-(Overworld) Trade gems for lifes: 1-5
+* Move Inuhh left: Left / A
+* Move Inuhh right: Right / D
+* Jump: Up / W
+* Run: Ctrl / Shift
+* Use items: Space
+* (Overworld) Toggle HUD: Space
+* Read signs, close dialogs: Return
+* (Overworld) Enter level: Return
+* Pause: P
+* Display information about current item: F1
+* Give up level: Escape
+* (Overworld) Trade gems for lifes: 1-5
 
 ## What can you do in Inuhh Shinvasion?
 
@@ -34,26 +34,29 @@ Another program included is the so called Shipedia, in which you can find detail
 
 ### Shipedia Controls:
 
-Complete name: Tab
-Enter command or name: Return
-Leave enemy information: Escape
-Scroll: Mouse Wheel
+* Complete name: Tab
+* Enter command or name: Return
+* Leave enemy information: Escape
+* Scroll: Mouse Wheel
 
 ### Shipedia Commands:
 
-SORT [PROPERTY]: Sorts enemies by the given property
-DIFF [DIFFICULTY]: Sets the given difficulty as base for the enemy properties
+* SORT [PROPERTY]: Sorts enemies by the given property
+* DIFF [DIFFICULTY]: Sets the given difficulty as base for the enemy properties
 
 ### Shipedia Sorting Properties:
 
-NAME: Name of the enemy
-STRENGTH: Strength of the enemy
-DEFENSE: Defense of the enemy
-HP: Health points of the enemy
-SPEED: Speed of the enemy
-WORLD: The world in which the enemy can be encountered first
-SCORE: The base score of the enemy
-SIZE: The size of the enemy
+* NAME: Name of the enemy
+* STRENGTH: Strength of the enemy
+* DEFENSE: Defense of the enemy
+* HP: Health points of the enemy
+* SPEED: Speed of the enemy
+* WORLD: The world in which the enemy can be encountered first
+* SCORE: The base score of the enemy
+* SIZE: The size of the enemy
 
 ### Shipedia Difficulties:
-EASY, NORMAL, HARD and DOOM
+* EASY
+* NORMAL
+* HARD
+* DOOM
