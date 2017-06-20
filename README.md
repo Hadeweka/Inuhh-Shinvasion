@@ -9,7 +9,7 @@ The protagonist is Inuhh, a dog, whose world got invaded by a weird alien race, 
 
 Current version of the game: 1.0.0 (June 14th 2017)
 
-The game is written in Ruby and programmed using the Gosu library. Use [Ruby Installer](https://rubyinstaller.org/downloads/) on Windows and make sure to use Ruby Version 2.3.X (Gosu doesn't seem to work with 2.4.X at the moment). Also follow the instructions on [the Gosu website](https://www.libgosu.org/ruby.html) to install the Gosu library.
+The game is written in Ruby and programmed using the Gosu library. Use [Ruby Installer](https://rubyinstaller.org/downloads/) on Windows and make sure to use Ruby Version 2.0 or preferably newer. Also follow the instructions on [the Gosu website](https://www.libgosu.org/ruby.html) to install the Gosu library.
 
 The game itself can be started by using "ruby Inuhh.rb" in a terminal or by executing "Inuhh Shinvasion.rbw" on Windows.
 
