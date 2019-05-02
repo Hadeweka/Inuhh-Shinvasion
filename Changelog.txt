@@ -1,0 +1,5 @@
+Version 1.0.1
+- Fixed unfair Shi coin in 5-1-2
+
+Version 1.0.0
+- First release
