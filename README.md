@@ -7,7 +7,7 @@ The protagonist is Inuhh, a dog, whose world got invaded by a weird alien race, 
 
 ## Instructions and informations
 
-Current version of the game: 1.0.0 (June 14th 2017)
+Current version of the game: 1.0.1 (May 2nd 2019)
 
 The game is written in Ruby and programmed using the Gosu library. Use [Ruby Installer](https://rubyinstaller.org/downloads/) on Windows and make sure to use Ruby Version 2.0 or preferably newer. Also follow the instructions on [the Gosu website](https://www.libgosu.org/ruby.html) to install the Gosu library.
 
