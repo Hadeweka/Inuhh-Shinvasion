@@ -11,6 +11,8 @@ Current version of the game: 1.0.1 (May 2nd 2019)
 
 The game is written in Ruby and programmed using the Gosu library. Use [Ruby Installer](https://rubyinstaller.org/downloads/) on Windows and make sure to use Ruby Version 2.0 or preferably newer. Also follow the instructions on [the Gosu website](https://www.libgosu.org/ruby.html) to install the Gosu library.
 
+Download this repository using the green Clone/Download button as a zip file and extract it to any place you want.
+
 The game itself can be started by using "ruby Inuhh.rb" in a terminal or by executing "Inuhh Shinvasion.rbw" on Windows.
 
 Don't expect any music besides some jingles. This game has none. And this is because ~~this game is an experimental avantgarde game which will leave your imagination with the task of creating background music~~ I have no talent and was too lazy to search for free music.
