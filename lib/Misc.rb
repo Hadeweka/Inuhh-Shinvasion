@@ -5,6 +5,8 @@ PASSWORD_WORLD_2 = "SHIVABA"
 PASSWORD_WORLD_3 = "DYUNTEH"
 PASSWORD_WORLD_4 = "DEGEE"
 PASSWORD_WORLD_5 = "AROMTHARAG"
+PASSWORD_WORLD_6 = "KIMUHH"
+PASSWORD_WORLD_7 = "DAQUELLEN"
 
 module Difficulty
     
@@ -23,6 +25,14 @@ module Difficulty
     
 end
 
+module Exit_Timers  # In 1/60 seconds
+    
+    Times = {"1-0-1" => {"!1-3-1" => 100},
+             "7-1-1" => {"7-1-2" => 60*60*1},
+             "7-1-2" => {"7-1-3" => 60*60*3, "!7-2-1" => 60*60*2.5}}
+     
+end
+
 module Minigames
     
     Test = 0
@@ -30,8 +40,8 @@ module Minigames
     Herbal_Quest = 2
     
     World_Levels = [nil, Swimming_Course, Herbal_Quest, Test, Test, Test, Test]
-    World_Unlock_Req = [nil, 99, 99, 99, 99, 99, 99]
-    World_Level_ID = [nil, "1-10", "2-12", "1-10", "1-10", "1-10", "1-10"]
+    World_Unlock_Req = [nil, 9*100, 11*100, 11*100, 10*100, 10*100, 10*100]
+    World_Level_ID = [nil, nil, nil, nil, nil, nil, nil] # Will be 1-10 and 2-12
     
     Gem_Cost = {Test => 1, Swimming_Course => 10, Herbal_Quest => 0}	# Gems per game
     Gem_Factor = {Test => 1.0, Swimming_Course => 0.4, Herbal_Quest => 0.1}	# Gems per Sapphire score
@@ -152,6 +162,8 @@ module Strings
     Hedge_Own_Shi_Coins = "Shi Coins: "
     Hedge_Mysteriorbs = "(5 Mysteriorbs)"
     Hedge_Unknown_Mysteriorbs = "(? Mysteriorbs)"
+    Hedge_Compass = "(4 Compass p.)"
+    Hedge_Unknown_Compass = "(? Compass p.)"
     Continue = "Press Enter to continue."
     Info = "---INFO---"
     Loading = "Loading..."
@@ -168,6 +180,7 @@ module Strings
     A_Perfect_Levels = "Perfect levels:"
     A_Highest_Combo = "Highest combo:"
     A_Golden_Chishi = "Golden Chishi:"
+    A_Perfect_Minigames = "Perfect minigames:"
     
     H_Score = "Score: "
     H_Lifes = "Lifes: "
@@ -200,6 +213,7 @@ module Milestones
     Invincible = 7
     Combo_Breaker = 8
     Gold_Eye = 9
+    Minigame_Nerd = 10
     
 end
 
@@ -495,7 +509,7 @@ end
 
 module Debug
     
-    ON = false
+    ON = false	# Please don't activate this
     
     def self.output(text)
         puts "[DEBUG] "+text.to_s if ON

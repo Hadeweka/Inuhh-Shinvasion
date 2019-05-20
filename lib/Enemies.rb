@@ -91,6 +91,8 @@ class Enemy < Entity
         @jump_image = true
         @window = window
         @jumping = false
+        @synced_timer = 0
+        @synced_animation_delay = false
         @description = ""
         @vy = 0 # Vertical velocity
         @range = 200 # Range of interaction outside of camera
@@ -146,7 +148,7 @@ class Enemy < Entity
             @living = false
         elsif (@inuhh.x - @x) < 320 && (@inuhh.y - @y) < 240 then
             if value > 0 then
-                @window.play_sound("shi cry #{rand(5)+1}")
+                @window.play_sound("shi cry #{rand(5)+1}", 1.0 + (value - 1)*0.05, 1.0 - (@xsize >= 50 && @ysize >= 50 ? 0.25 : 0.0))
             elsif @sound_on
                 @window.play_sound("guard")
             end
@@ -235,6 +237,7 @@ class Enemy < Entity
     end
     
     def update(cam_x, cam_y)
+        @synced_timer += @synced_animation_delay if @synced_animation_delay
         @tics += 1
         @invul -= 1 if @invul > 0
         @inuhh = @window.inuhh
@@ -385,7 +388,11 @@ class Enemy < Entity
         if (move_x == 0 && !@dir_set)
             @cur_image = @standing if @damage_counter <= 0
         else
-            @cur_image = ((milliseconds / @anim_delay).floor % 2 == 0 || move_x == 0) ? @walk1 : @walk2 if @damage_counter <= 0
+            if @synced_animation_delay then
+                @cur_image = ((@synced_timer / @anim_delay).floor % 2 == 0 || move_x == 0) ? @walk1 : @walk2 if @damage_counter <= 0
+            else
+                @cur_image = ((milliseconds / @anim_delay).floor % 2 == 0 || move_x == 0) ? @walk1 : @walk2 if @damage_counter <= 0
+            end
         end
         if (@vy < 0) && @jump_image
             @cur_image = @jump
@@ -659,6 +666,7 @@ module Enemies
     Big_Shi = 140
     Shicore = 141
     Agent_Dio_e = 142
+    Shithe = 143
     
     def self.register(nr)
         return Enemy_Datas.free_number + nr
@@ -813,6 +821,7 @@ module Enemy_Datas
     Enemy_Big_Shi = Enemy_Data.new(Enemies::Big_Shi) # 140
     Enemy_Shicore = Enemy_Data.new(Enemies::Shicore) # 141
     Enemy_Agent_Dio_e = Enemy_Data.new(Enemies::Agent_Dio_e) # 142
+    Enemy_Shithe = Enemy_Data.new(Enemies::Shithe) # 143
     
     def self.i_index
         return @@i_index
@@ -861,7 +870,11 @@ module Enemy_Datas
                      Enemy_Reapshi, Enemy_Shiborg, Enemy_Shinegun, Enemy_Shi_52, Enemy_Shinamite, Enemy_Hovershi, Enemy_Shirman, Enemy_Raishi, Enemy_Multishi,
                      Enemy_Targeshi, Enemy_Shiprinkler, Enemy_Hyashi, Enemy_Shidacea, Enemy_Treashi, Enemy_Launshi, Enemy_Loxhi, Enemy_Unloxhi, Enemy_Comm_Araphaw,
                      Enemy_Comm_Unhorqh, Enemy_Comm_Irnovel, Enemy_Adm_Aromtharag, Enemy_Shinsaw, Enemy_Shindulum, Enemy_Pacshi, Enemy_Shishire, Enemy_Lunarshi,
-                     Enemy_Wereshi, Enemy_Kanibashi] # IDs
+                     Enemy_Wereshi, Enemy_Kanibashi, Enemy_Shirpedo, Enemy_Shirgantua, Enemy_Shiwing, Enemy_Shiesaw, Enemy_Railshi, Enemy_Collapshi, Enemy_Shistnut,
+                     Enemy_Shiranha, Enemy_Avalanshi, Enemy_Sledshi, Enemy_Shinertia, Enemy_Shiryumov, Enemy_Shinge, Enemy_Baskeshi, Enemy_Carshi, Enemy_Locomoshi,
+                     Enemy_Carriashi, Enemy_Darkshi, Enemy_Polishi, Enemy_Shippuku, Enemy_Shopshi, Enemy_Shiladdin, Enemy_Shinny, Enemy_Electrishi, Enemy_Shirge,
+                     Enemy_Fisshi, Enemy_Shill, Enemy_Cocoshi, Enemy_Shifeguard, Enemy_Shillowisp, Enemy_Illushi, Enemy_Tutenshi, Enemy_Shirath, Enemy_Shindelier,
+                     Enemy_Big_Shi, Enemy_Shicore, Enemy_Agent_Dio_e, Enemy_Shithe] # IDs
         @@c_index = [Chishi, Daishi, Gasshi, Shipike, Enershi, Shiroplane, Shibmarine, Shilo, Neshi, Watershi, Shibmarine_D, Kamigasshi, Chishi_X, Chishi_Y, Shihog,
                      Shistol, Shizooka, Gattershi, Grasshi, Shitomium, Shilectron, Takashi, Yasushi, Gammarine, Shitake, Shipple, Moleshi, Shitor, Shiparrow,
                      Shipectral, Koroshi, Invinshi, Sushi, Daishi_X, Daishi_Y, Khashi, Shiturn, Pushi, TNShi, Nukeshi, Elashi, Shilat, Platisshi, Shireen,
@@ -869,7 +882,9 @@ module Enemy_Datas
                      Shibmarine_Z, Shignite, Quarshi, Quanshi, Shitar, Mayshi, Shimmy, Shilopard, Poltershi, Demolishi, Shiredder, Extashi, Shilato, Climbshi,
                      Shicicle, Rampashi, Turboshi, Shireball, Erupshi, Shivvy, Reapshi, Shiborg, Shinegun, Shi_52, Shinamite, Hovershi, Shirman, Raishi, Multishi,
                      Targeshi, Shiprinkler, Hyashi, Shidacea, Treashi, Launshi, Loxhi, Unloxhi, Comm_Araphaw, Comm_Unhorqh, Comm_Irnovel, Adm_Aromtharag, Shinsaw,
-                     Shindulum, Pacshi, Shishire, Lunarshi, Wereshi, Kanibashi] # Classes
+                     Shindulum, Pacshi, Shishire, Lunarshi, Wereshi, Kanibashi, Shirpedo, Shirgantua, Shiwing, Shiesaw, Railshi, Collapshi, Shistnut, Shiranha,
+                     Avalanshi, Sledshi, Shinertia, Shiryumov, Shinge, Baskeshi, Carshi, Locomoshi, Carriashi, Darkshi, Polishi, Shippuku, Shopshi, Shiladdin, Shinny,
+                     Electrishi, Shirge, Fisshi, Shill, Cocoshi, Shifeguard, Shillowisp, Illushi, Tutenshi, Shirath, Shindelier, Big_Shi, Shicore, Agent_Dio_e, Shithe] # Classes
         @@n_index = ["Chishi", "Daishi", "Gasshi", "Shipike", "Enershi", "Shiroplane", "Shibmarine", "Shilo", "Neshi", "Watershi", "Shibmarine D",
                      "Kamigasshi", "Chishi X", "Chishi Y", "Shihog", "Shistol", "Shizooka", "Gattershi", "Grasshi", "Shitomium", "Shilectron",
                      "Takashi", "Yasushi", "Gammarine", "Shitake", "Shipple", "Moleshi", "Shitor", "Shiparrow", "Shipectral", "Koroshi", "Invinshi",
@@ -879,7 +894,10 @@ module Enemy_Datas
                      "Demolishi", "Shiredder", "Extashi", "Shilato", "Climbshi", "Shicicle", "Rampashi", "Turboshi", "Shireball", "Erupshi", "Shivvy",
                      "Reapshi", "Shiborg", "Shinegun", "Shi-52", "Shinamite", "Hovershi", "Shirman", "Raishi", "Multishi", "Targeshi", "Shiprinkler",
                      "Hyashi", "Shidacea", "Treashi", "Launshi", "Loxhi", "Unloxhi", "Cm. Araphaw", "Cm. Unhorqh", "Cm. Irnovel", "Ad. Aromtharag", "Shinsaw",
-                     "Shindulum", "Pacshi", "Shishire", "Lunarshi", "Wereshi", "Kanibashi"] # Names
+                     "Shindulum", "Pacshi", "Shishire", "Lunarshi", "Wereshi", "Kanibashi", "Shirpedo", "Shirgantua", "Shiwing", "Shiesaw", "Railshi",
+                     "Collapshi", "Shistnut", "Shiranha", "Avalanshi", "Sledshi", "Shinertia", "Shiryumov", "Shinge", "Baskeshi", "Carshi", "Locomoshi",
+                     "Carriashi", "Darkshi", "Polishi", "Shippuku", "Shopshi", "Shiladdin", "Shinny", "Electrishi", "Shirge", "Fisshi", "Shill", "Cocoshi",
+                     "Shifegurd" , "Shillowisp", "Illushi", "Tutenshi", "Shirath", "Shindelier", "Big Shi", "Shicore", "Agent Dio'e", "Shithe"] # Names
         @@editor_pics = [Pics::Editor_Enemies]
     end
     

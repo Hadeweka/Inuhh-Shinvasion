@@ -1,3 +1,4 @@
+require "lib/Keys.rb"
 require "lib/Collider.rb"
 require "lib/Misc.rb"
 require "lib/Datas.rb"
@@ -39,6 +40,17 @@ module Level
     Unknown = 28
     Factory = 29
     Dark_Path = 30
+    Dock = 31
+    Acrobatics = 32
+    Beach = 33
+    Tower = 34
+    Overture = 35
+    M1 = 36
+    M2 = 37
+    M3 = 38
+    M4 = 39
+    M5 = 40
+    Flowers = 41
     
     Name = {"1-0-1" => "W10",
             "1-1-1" => "W11",
@@ -63,6 +75,7 @@ module Level
             "1-9-2" => "W15",
             "1-9-3" => "W15",
             "1-9-4" => "W15",
+            "1-10-1"=> "W15",
             "2-1-1" => "W21",
             "2-1-2" => "W21",
             "2-2-1" => "W21",
@@ -89,6 +102,7 @@ module Level
             "2-10-2"=> "W25",
             "2-11-1"=> "W26",
             "2-11-2"=> "W26",
+            "2-12-1"=> "W26",
             "3-1-1" => "W31",
             "3-1-2" => "W31",
             "3-2-1" => "W31",
@@ -163,7 +177,34 @@ module Level
             "5-9-2" => "W55",
             "5-9-3" => "W55",
             "5-10-1" => "W55",
-            "5-10-2" => "W55"
+            "5-10-2" => "W55",
+            "6-1-1" => "W61",
+            "6-1-2" => "W61",
+            "6-2-1" => "W61",
+            "6-2-2" => "W61",
+            "6-3-1" => "W62",
+            "6-3-2" => "W62",
+            "6-4-1" => "W62",
+            "6-4-2" => "W62",
+            "6-5-1" => "W63",
+            "6-5-2" => "W63",
+            "6-6-1" => "W63",
+            "6-6-2" => "W63",
+            "6-7-1" => "W64",
+            "6-7-2" => "W64",
+            "6-8-1" => "W64",
+            "6-8-2" => "W64",
+            "6-9-1" => "W65",
+            "6-9-2" => "W65",
+            "6-10-1" => "W65",
+            "6-10-2" => "W65",
+            "6-10-3" => "W65",
+            "7-1-1" => "W71",
+            "7-1-2" => "W71",
+            "7-1-3" => "W71",
+            "7-2-1" => "W71",
+            "7-2-2" => "W71",
+            "7-2-3" => "W71"
            }
     Desc = {"1-0-1" => "Cleanbuil Debug",
             "1-1-1" => "Cleanbuil Meadow 1-1",
@@ -188,6 +229,7 @@ module Level
             "1-9-2" => "Cleanbuil Lake 2-2",
             "1-9-3" => "Cleanbuil Lake 2-3",
             "1-9-4" => "Cleanbuil Lake 2-4",
+            "1-10-1"=> "M1 - Swimming Course",
             "2-1-1" => "Dominwood West 1-1",
             "2-1-2" => "Dominwood West 1-2",
             "2-2-1" => "Dominwood West 2-1",
@@ -214,6 +256,7 @@ module Level
             "2-10-2"=> "Dominwood West 3-2",
             "2-11-1"=> "Dominwood Sanctuary 1",
             "2-11-2"=> "Dominwood Sanctuary 2",
+            "2-12-1"=> "M2 - Herbal Quest",
             "3-1-1" => "Park Avenue 1-1",
             "3-1-2" => "Park Avenue 1-2",
             "3-2-1" => "Park Avenue 2-1",
@@ -288,14 +331,44 @@ module Level
             "5-9-2" => "Shi Sanatorium 2",
             "5-9-3" => "Shi Sanatorium 3",
             "5-10-1"=> "Yunada Bridge 1",
-            "5-10-2"=> "Yunada Bridge 2"
+            "5-10-2"=> "Yunada Bridge 2",
+            "6-1-1" => "Port Pain 1",
+            "6-1-2" => "Port Pain 2",
+            "6-2-1" => "Absurd Acrobatics 1",
+            "6-2-2" => "Absurd Acrobatics 2",
+            "6-3-1" => "Unfair Underwood 1",
+            "6-3-2" => "Unfair Underwood 2",
+            "6-4-1" => "Mount Mourning 1",
+            "6-4-2" => "Mount Mourning 2",
+            "6-5-1" => "Cruel City 1",
+            "6-5-2" => "Cruel City 2",
+            "6-6-1" => "Doom Desert 1",
+            "6-6-2" => "Doom Desert 2",
+            "6-7-1" => "Rough Reactor 1",
+            "6-7-2" => "Rough Reactor 2",
+            "6-8-1" => "Brutal Beach 1",
+            "6-8-2" => "Brutal Beach 2",
+            "6-9-1" => "Tomb Tower 1",
+            "6-9-2" => "Tomb Tower 2",
+            "6-10-1"=> "Overkill Overture 1",
+            "6-10-2"=> "Overkill Overture 2",
+            "6-10-3"=> "Overkill Overture 3",
+            "7-1-1" => "Flower Pathway 1",
+            "7-1-2" => "Flower Pathway 2",
+            "7-1-3" => "Flower Pathway 3",
+            "7-2-1" => "Spring Meadows 1",
+            "7-2-2" => "Spring Meadows 2",
+            "7-2-3" => "Spring Meadows 3"
             }
     
     Story = ["1-1", "1-2", "1-3", "1-4", "1-5",
              "2-1", "2-2", "2-3", "2-4", "2-5",
              "3-1", "3-2", "3-3", "3-4", "3-5",
              "4-1", "4-2", "4-3", "4-4", "4-5",
-             "5-1", "5-2", "5-3", "5-4", "5-5", "5-10"]
+             "5-1", "5-2", "5-3", "5-4", "5-5", "5-10",
+             "6-1", "6-2", "6-3", "6-4", "6-5",
+             "6-6", "6-7", "6-8", "6-9", "6-10",
+             "7-1", "7-2"]
     
     Bg = {"1-0-1" => "Volcano_Sky",
           "1-1-1" => "Sky",
@@ -320,6 +393,7 @@ module Level
           "1-9-2" => "Sky",
           "1-9-3" => "Sky",
           "1-9-4" => "Sky",
+          "1-10-1"=> "Sky",
           "2-1-1" => "Forest",
           "2-1-2" => "Forest",
           "2-2-1" => "Forest",
@@ -346,6 +420,7 @@ module Level
           "2-10-2"=> "Forest",
           "2-11-1"=> "Forest",
           "2-11-2"=> "Forest",
+          "2-12-1"=> "Forest",
           "3-1-1" => "Sky",
           "3-1-2" => "Sky",
           "3-2-1" => "Sky",
@@ -421,6 +496,33 @@ module Level
           "5-9-3" => "Sunset_Sky",
           "5-10-1"=> "Earth",
           "5-10-2"=> "Earth",
+          "6-1-1" => "Sunset_Sky",
+          "6-1-2" => "Sunset_Sky",
+          "6-2-1" => "Sky",
+          "6-2-2" => "Sky",
+          "6-3-1" => "Dark_Forest",
+          "6-3-2" => "Dark_Forest",
+          "6-4-1" => "High_Sky",
+          "6-4-2" => "Dark_Sky",
+          "6-5-1" => "Sunset_Sky",
+          "6-5-2" => "Factory",
+          "6-6-1" => "Desert_Sky",
+          "6-6-2" => "Desert_Sky",
+          "6-7-1" => "Factory",
+          "6-7-2" => "Factory",
+          "6-8-1" => "Sky",
+          "6-8-2" => "Sunset_Sky",
+          "6-9-1" => "Sunset_Sky",
+          "6-9-2" => "Dark_Sky",
+          "6-10-1"=> "High_Sky",
+          "6-10-2"=> "High_Sky",
+          "6-10-3"=> "High_Sky",
+          "7-1-1" => "Sky",
+          "7-1-2" => "Sky",
+          "7-1-3" => "Sky",
+          "7-2-1" => "Sky",
+          "7-2-2" => "Sky",
+          "7-2-3" => "Sky",
           "?-?-?" => "Sky"
          }
     Special = {"1-0-1" => "Nebula",
@@ -448,7 +550,13 @@ module Level
                "4-7-3" => "Nebula",
                "4-9-1" => "Nebula",
                "5-8-1" => "Nebula",
-               "5-8-2" => "Nebula"
+               "5-8-2" => "Nebula",
+               "6-3-1" => "Nebula",
+               "6-3-2" => "Nebula",
+               "6-4-2" => "Nebula",
+               "6-7-2" => "Nebula",
+               "6-9-1" => "Nebula",
+               "6-9-2" => "Nebula"
               }
     Desc2 = {"1-0" => "Cleanbuil Debug",
              "1-1" => "Cleanbuil Meadow 1",
@@ -460,6 +568,7 @@ module Level
              "1-7" => "Cleanbuil Shore 2",
              "1-8" => "Cleanbuil Ruins",
              "1-9" => "Cleanbuil Lake 2",
+             "1-10"=> "M1 - Swimming Course",
              
              "2-1" => "Dominwood West 1",
              "2-2" => "Dominwood West 2",
@@ -472,6 +581,7 @@ module Level
              "2-9" => "Nautabyss 2",
              "2-10"=> "Dominwood West 3",
              "2-11"=> "Dominwood Sanctuary",
+             "2-12"=> "M2 - Herbal Quest",
              
              "3-1" => "Park Avenue 1",
              "3-2" => "Park Avenue 2",
@@ -505,7 +615,21 @@ module Level
              "5-7" => "Shi Factory 2",
              "5-8" => "Shi Trail",
              "5-9" => "Shi Sanatorium",
-             "5-10"=> "Yunada Bridge"
+             "5-10"=> "Yunada Bridge",
+             
+             "6-1" => "Port Pain",
+             "6-2" => "Absurd Acrobatics",
+             "6-3" => "Unfair Underwood",
+             "6-4" => "Mount Mourning",
+             "6-5" => "Cruel City",
+             "6-6" => "Doom Desert",
+             "6-7" => "Rough Reactor",
+             "6-8" => "Brutal Beach",
+             "6-9" => "Tomb Tower",
+             "6-10"=> "Overkill Overture",
+
+             "7-1" => "Flower Pathway",
+             "7-2" => "Spring Meadows"
             }
     
     Connections = {"1-0" => [false, false, false, false],	# [DOWN, LEFT, RIGHT, UP]
@@ -514,15 +638,16 @@ module Level
                    "1-3" => [false, false, "1-7", "1-4"],
                    "1-4" => [false, false, "1-5", "1-6"],
                    "1-5" => [false, false, "2-1", false],
-                   "1-6" => [false, false, false, false],
+                   "1-6" => [false, false, false, "6-1"],
                    "1-7" => [false, false, false, "1-8"],
                    "1-8" => [false, false, false, "1-9"],
-                   "1-9" => [false, false, false ,false],
+                   "1-9" => [false, false, "1-10",false],
+                   "1-10"=> [false, false, false, false],
                    
-                   "2-1" => ["2-2", false, "2-12","2-6"],
+                   "2-1" => ["2-2", false, false, "2-6"],
                    "2-2" => ["2-10",false, "2-3", false],
                    "2-3" => [false, false, false, "2-4"],
-                   "2-4" => [false, false, "2-5", false],
+                   "2-4" => [false, "2-12","2-5", false],
                    "2-5" => [false, false, "3-1", false],
                    "2-6" => [false, false, "2-7", false],
                    "2-7" => ["2-4", false, "2-8", false],
@@ -530,6 +655,7 @@ module Level
                    "2-9" => [false, false, false, false],
                    "2-10"=> [false, false, "2-11",false],
                    "2-11"=> [false, false, "3-9", "2-5"],
+                   "2-12"=> [false, false, false, false],
                    
                    "3-1" => [false, false, false, "3-2"],
                    "3-2" => [false, false, "3-3", false],
@@ -563,7 +689,21 @@ module Level
                    "5-7" => [false, false, false, false],
                    "5-8" => [false, "5-9", false, false],
                    "5-9" => [false, false, false, false],
-                   "5-10"=> [false, false, false, false]
+                   "5-10"=> [false, false, false, false],
+                   
+                   "6-1" => [false, false, false, "6-2"],
+                   "6-2" => [false, false, "6-3", false],
+                   "6-3" => [false, false, false, "6-4"],
+                   "6-4" => [false, "6-5", false, false],
+                   "6-5" => [false, "6-6", false, false],
+                   "6-6" => ["6-7", false, false, false],
+                   "6-7" => [false, false, "6-8", false],
+                   "6-8" => [false, false, false, "6-9"],
+                   "6-9" => [false, false, "6-10",false],
+                   "6-10"=> [false, false, false, false],
+
+                   "7-1" => [false, false, false, "7-2"],
+                   "7-2" => [false, false, false, false]
                    }
     Symbols = {"1-0" => Forest,
                "1-1" => Hills,
@@ -575,6 +715,7 @@ module Level
                "1-7" => Shore,
                "1-8" => Ruins,
                "1-9" => Water,
+               "1-10"=> M1,
                
                "2-1" => Forest,
                "2-2" => Forest,
@@ -587,6 +728,7 @@ module Level
                "2-9" => Forest_Abyss,
                "2-10"=> Forest,
                "2-11"=> Sanctuary,
+               "2-12"=> M2,
                
                "3-1" => Avenue,
                "3-2" => Avenue,
@@ -620,7 +762,21 @@ module Level
                "5-7" => Factory,
                "5-8" => Dark_Path,
                "5-9" => Sanatorium,
-               "5-10"=> Unknown
+               "5-10"=> Unknown,
+               
+               "6-1" => Dock,
+               "6-2" => Acrobatics,
+               "6-3" => Dark_Forest,
+               "6-4" => Plateau,
+               "6-5" => City,
+               "6-6" => Desert,
+               "6-7" => Factory,
+               "6-8" => Beach,
+               "6-9" => Tower,
+               "6-10"=> Overture,
+
+               "7-1" => Flowers,
+               "7-2" => Shore
               }
     Positions = {"1-0" => [100, 450],
                  "1-1" => [30, 450],
@@ -632,6 +788,7 @@ module Level
                  "1-7" => [300, 410],
                  "1-8" => [320, 270],
                  "1-9" => [290, 40],
+                 "1-10"=> [400, 60],
                  
                  "2-1" => [50, 200],
                  "2-2" => [40, 300],
@@ -644,6 +801,7 @@ module Level
                  "2-9" => [560, 40],
                  "2-10"=> [60, 420],
                  "2-11"=> [440, 380],
+                 "2-12"=> [170, 180],
                  
                  "3-1" => [40, 190],
                  "3-2" => [50, 90],
@@ -677,13 +835,29 @@ module Level
                  "5-7" => [590, 380],
                  "5-8" => [230, 170],
                  "5-9" => [130, 140],
-                 "5-10"=> [580, 60]
+                 "5-10"=> [580, 60],
+                 
+                 "6-1" => [335, 430],
+                 "6-2" => [370, 300],
+                 "6-3" => [500, 270],
+                 "6-4" => [475, 140],
+                 "6-5" => [320, 100],
+                 "6-6" => [110, 80],
+                 "6-7" => [80, 250],
+                 "6-8" => [180, 320],
+                 "6-9" => [210, 200],
+                 "6-10"=> [340, 200],
+
+                 "7-1" => [540, 400],
+                 "7-2" => [520, 200]
                 }
     World_Pics = {"1" => "World_1",
                   "2" => "World_2",
                   "3" => "World_3",
                   "4" => "World_4",
-                  "5" => "World_5"
+                  "5" => "World_5",
+                  "6" => "World_6",
+                  "7" => "World_7"
                  }
     Number = {"1-0" => 0,
               "1-1" => 2,
@@ -695,6 +869,7 @@ module Level
               "1-7" => 3,
               "1-8" => 2,
               "1-9" => 5,
+              "1-10"=> 0,
               
               "2-1" => 2,
               "2-2" => 2,
@@ -707,6 +882,7 @@ module Level
               "2-9" => 3,
               "2-10"=> 2,
               "2-11"=> 2,
+              "2-12"=> 0,
               
               "3-1" => 2,
               "3-2" => 2,
@@ -740,7 +916,21 @@ module Level
               "5-7" => 2,
               "5-8" => 2,
               "5-9" => 3,
-              "5-10"=> 12
+              "5-10"=> 12,
+              
+              "6-1" => 2,
+              "6-2" => 2,
+              "6-3" => 2,
+              "6-4" => 2,
+              "6-5" => 2,
+              "6-6" => 2,
+              "6-7" => 2,
+              "6-8" => 2,
+              "6-9" => 2,
+              "6-10"=> 12,
+
+              "7-1" => 3,
+              "7-2" => 3
              }
 end
 
@@ -788,6 +978,7 @@ module Tiles
     Futuristic = 39
     Rails = 40
     Palm = 41
+    Flowers = 42
     
 end
 
@@ -837,10 +1028,11 @@ module Tile_Datas
     Tile_Futuristic = Tile_Data.new(Tiles::Futuristic, true) # 39
     Tile_Rails = Tile_Data.new(Tiles::Rails, true) # 40
     Tile_Palm = Tile_Data.new(Tiles::Palm, true, false, false) # 41
+    Tile_Flowers = Tile_Data.new(Tiles::Flowers, false, false, false) # 42
     
     Index = [Tile_Grass, Tile_Earth, Tile_Stone, Tile_Lava, Tile_Cloud, Tile_Water, Tile_Wood, Tile_Bush, Tile_Tree, Tile_Small_Grass, Tile_Sand, Tile_Seaweed,
              Tile_Cave, Tile_Exterior, Tile_Interior, Tile_Shi_Water, Tile_Sea_Ruins, Tile_Ruins, Tile_Spikes, Tile_Dark_Grass, Tile_Broken_Exterior, Tile_Ruins_Back,
              Tile_Snow, Tile_Ice, Tile_Wall, Tile_Wall_Inside, Tile_Rice, Tile_Wheat, Tile_Fake_Earth, Tile_Window, Tile_Guard, Tile_Rock, Tile_Cactus, Tile_Sandstone,
-             Tile_Sandstone_Inside, Tile_Keyhole, Tile_Grey_Rock, Tile_Poison, Tile_Confusion, Tile_Futuristic, Tile_Rails, Tile_Palm]
+             Tile_Sandstone_Inside, Tile_Keyhole, Tile_Grey_Rock, Tile_Poison, Tile_Confusion, Tile_Futuristic, Tile_Rails, Tile_Palm, Tile_Flowers]
     
 end

@@ -1168,6 +1168,53 @@ class PlantDomingrass < Plant
     
 end
 
+class ExitTimer < Collectible
+    
+    def initialize(image, x, y)
+        super(image, x, y)
+        @score = nil
+        @own_sound = true
+        @constant = true
+        @timers = nil
+    end
+    
+    def update(window, inuhh)
+        super(window, inuhh)
+        level = window.level
+        level_part = level.split("-")[0..1].join("-")
+        return unless Exit_Timers::Times[level]
+        if !@timers then
+            Exit_Timers::Times[level].each do |new_level, time_limit|
+                desired_warp = nil
+                window.map.warps.each do |w|
+                    desired_warp = w if w.destination == new_level
+                end
+                if desired_warp
+                    warp_img = window.map.warp_imgs[(new_level[0] == "!" ? 2 : 0)]
+                    desired_warp.change_pic(warp_img)
+                    @timers = [] if !@timers
+                    @timers.push([time_limit, desired_warp]) 
+                    window.activate_timer
+                end
+            end
+        else
+            @timers.each do |t|
+                next if t[0] > window.timer
+                if t[0] == window.timer then
+                    warp_img = window.map.warp_imgs[1]
+                    t[1].change_destination("!" + level)
+                    t[1].change_pic(warp_img)
+                end
+            end
+        end
+    end
+    
+    def draw
+        @image.draw(@x-25, @y-25, ZOrder::Gems) if EDITOR
+    end
+    
+end
+
 module Objects
     
     Coin = 0
@@ -1210,6 +1257,7 @@ module Objects
     Plant_Shi_Wheat = 37
     Plant_Dominrose = 38
     Plant_Domingrass = 39
+    Exit_Timer = 40
     
 end
 
@@ -1257,20 +1305,21 @@ module Object_Datas
     Object_Plant_Shi_Wheat = Object_Data.new(Objects::Plant_Shi_Wheat) # 37
     Object_Plant_Dominrose = Object_Data.new(Objects::Plant_Dominrose) # 38
     Object_Plant_Domingrass = Object_Data.new(Objects::Plant_Domingrass) # 39
+    Object_Exit_Timer = Object_Data.new(Objects::Exit_Timer) # 40
     
     Index = [Object_Coin, Object_Gem, Object_Shi_Coin, Object_Bone, Object_Wing, Object_Hedgehound, Object_Pedestal, Object_Shistol, Object_Fruit, Object_Mysteriorb,
              Object_Compass, Object_Drips, Object_Boots, Object_Sand, Object_Key, Object_Shizooka, Object_Gold_Bone, Object_Shistol_Plus, Object_Shinegun,
              Object_Shinegun_Plus, Object_Flippers, Object_Ultra_Bone, Object_Bat, Object_Ball, Object_Magic_Lamp, Object_Warning, Object_Minigame_Observer,
              Object_Sapphire, Object_Minigame_Goal, Object_Minigame_Token, Object_Plant_Dominherb, Object_Plant_Dottery, Object_Plant_Shi_Tree_Seed, Object_Plant_Dominweed,
-             Object_Plant_Nautulip, Object_Plant_Nautaisy, Object_Plant_Hyashi_Petal, Object_Plant_Shi_Wheat, Object_Plant_Dominrose, Object_Plant_Domingrass]
+             Object_Plant_Nautulip, Object_Plant_Nautaisy, Object_Plant_Hyashi_Petal, Object_Plant_Shi_Wheat, Object_Plant_Dominrose, Object_Plant_Domingrass, Object_Exit_Timer]
     C_Index = [CollectibleCoin, CollectibleGem, CollectibleShiCoin, CollectibleBone, CollectibleWing, NPCHedgehound, CollectiblePedestal, CollectibleShistol,
                CollectibleFruit, CollectibleMysteriorb, CollectibleCompass, DecorationDrips, CollectibleBoots, CollectibleSand, CollectibleKey, CollectibleShizooka,
                CollectibleGoldBone, CollectibleShistolPlus, CollectibleShinegun, CollectibleShinegunPlus, CollectibleFlippers, CollectibleUltraBone, CollectibleBat,
                CollectibleBall, CollectibleMagicLamp, DecorationWarning, MinigameObserver, CollectibleSapphire, MinigameGoal, MinigameToken, PlantDominherb, PlantDottery,
-               PlantShiTreeSeed, PlantDominweed, PlantNautulip, PlantNautaisy, PlantHyashiPetal, PlantShiWheat, PlantDominrose, PlantDomingrass]
+               PlantShiTreeSeed, PlantDominweed, PlantNautulip, PlantNautaisy, PlantHyashiPetal, PlantShiWheat, PlantDominrose, PlantDomingrass, ExitTimer]
     N_Index = ["Coin", "Gem", "Shi_Coin", "Bone", "Wing", "Hedgehound", "Pedestal", "Shistol", "Fruit", "Mysteriorb", "Compass Piece", "Drips", "Boots", "Sand", "Key",
                "Shizooka", "Gold Bone", "Shistol Plus", "Shinegun", "Shinegun Plus", "Flippers", "Ultra Bone", "Bat", "Ball", "Magic Lamp", "Warning", "Minigame Observer",
                "Sapphire", "Minigame Goal", "Minigame Token", "Dominherb", "Dottery", "Shi Tree Seeds", "Dominweed", "Nautulip", "Nautaisy", "Hyashi Petals", "Shi Wheat",
-               "Dominrose", "Domingrass"]
+               "Dominrose", "Domingrass", "Exit Timer"]
     
 end

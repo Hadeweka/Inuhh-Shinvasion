@@ -7,6 +7,14 @@ class Warp
         @destination = dest
     end
     
+    def change_destination(new_destination)
+        @destination = new_destination
+    end
+    
+    def change_pic(new_pic)
+        @image = new_pic
+    end
+    
     def draw
         @image.draw(@x - 50.0*Math::sin(milliseconds / 1000.0)**2, @y - 25 - 50.0*Math::sin(milliseconds / 1000.0)**2, ZOrder::Warps, 2.0*Math::sin(milliseconds / 1000.0)**2, 2.0*Math::sin(milliseconds / 1000.0)**2)
     end

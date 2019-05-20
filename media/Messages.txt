@@ -658,4 +658,48 @@ Herbal Quest
 TODO
 #EndMessage
 
+#Message 0064:
+MINIGAME 3
+TODO
+#EndMessage
+
+#Message 0065:
+MINIGAME 4
+TODO
+#EndMessage
+
+#Message 0066:
+MINIGAME 5
+TODO
+#EndMessage
+
+#Message 0067:
+Welcome to the Season Mountains!
+In this extremely peaceful world,
+you can take as many time as you need
+to proceed through an area!
+#===#
+Everything is happy here, nobody will
+harm you or hunt you!
+#===#
+And, as mentioned, there is no need
+to be hasty. Take everything slow,
+you won't miss anything, I promise!
+#===#
+And... just ignore that stupid time
+limit in the upper right corner.
+It has no reason to be there :-).
+#EndMessage
+
+#Message 0068:
+Okay, I can't fool you.
+Most warps here expire after some
+minutes. Be quick or you won't
+reach your true destination.
+#===#
+The warps will change their color
+if their time runs out, so you can
+see whether you're too late or not.
+#EndMessage
+
 #EndDocument
