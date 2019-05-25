@@ -9,13 +9,23 @@ The protagonist is Inuhh, a dog, whose world got invaded by a weird alien race, 
 
 Current version of the game: 1.0.1 (May 2nd 2019)
 
+### I am on Windows and lazy
+
+Download this repository using the green Clone/Download button as a zip file and extract it to any place you want.
+
+Then just exectute "Inuhh Shinvasion.exe", be happy and submit any bugs to me ;-)
+
+### I'd rather install everything manually
+
 The game is written in Ruby and programmed using the Gosu library. Use [Ruby Installer](https://rubyinstaller.org/downloads/) on Windows and make sure to use Ruby Version 2.0 or preferably newer.
 
 Download this repository using the green Clone/Download button as a zip file and extract it to any place you want.
 
-Execute then the file "Setup.rb" from the folder to install the required Ruby Gems Gosu and Mathn.
+Execute then the file "Setup.rb" from the folder to install the required Ruby Gems Gosu and Mathn. If you REALLY like to install things manually, install the two gems using "gem install gosu" and "gem install mathn". If you are not on Windows, use https://www.libgosu.org/ for an instruction to install Gosu.
 
 The game itself can be started by using "ruby Inuhh.rb" in a terminal or by executing "Inuhh Shinvasion.rbw" on Windows.
+
+## What else?
 
 Don't expect any music besides some jingles. This game has none. And this is because ~~this game is an experimental avantgarde game which will leave your imagination with the task of creating background music~~ I have no talent and was too lazy to search for free music.
 
