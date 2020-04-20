@@ -264,13 +264,13 @@ class Inuhh < Entity
             change_images("Newyear")
         else
             @standing, @walk1, @walk2, @jump =
-                    *Image.load_tiles(@window, Pics::Inuhh, 2*@gxsize, 2*@gysize, false)
+                    *Image.load_tiles(Pics::Inuhh, 2*@gxsize, 2*@gysize)
         end
     end
     
     def change_images(name)
         @standing, @walk1, @walk2, @jump =
-                *Image.load_tiles(@window, Pics::Folder_Forms + "#{name}.png", 2*@gxsize, 2*@gysize, false)
+                *Image.load_tiles(Pics::Folder_Forms + "#{name}.png", 2*@gxsize, 2*@gysize)
     end
     
     def delete_items
@@ -880,7 +880,7 @@ class Map
         
         #filename = "test.iwf"
         lines = File.readlines(filename).map { |line| line.chomp }
-        f = File.open(filename, "r")
+        f = File.open(filename, "rb")
         @check = Marshal.load(f)
         while @check != section do
             @check = Marshal.load(f)
@@ -1403,7 +1403,7 @@ class Game < Window
             self.text_input = nil
             @level = "1-1-1"
             change_world_img("1")
-        elsif File.exist?(Media::Folder_Players + "#@name.isf") then
+        elsif File.exist?(Media::Folder_Players + "#{@name}.isf") then
             @name_input = false
             self.text_input = nil
             load_state
@@ -1449,7 +1449,7 @@ class Game < Window
         silence
         @world_map = true
         Debug::output("Loading from file...")
-        f = File.open(Media::Folder_Players + "#@name.isf", "r")
+        f = File.open(Media::Folder_Players + "#{@name}.isf", "rb")
         Difficulty.set(Marshal.load(f))
         @level = convert_level_to_string(Marshal.load(f))
         @collected_shi_coins = reconvert_shi_coins(Marshal.load(f))
@@ -1464,8 +1464,8 @@ class Game < Window
     end
     
     def save_state
-        File::delete(Media::Folder_Players + "@name.isf") if File.exist?(Media::Folder_Players + "@name.isf")
-        f = File.open(Media::Folder_Players + "#@name.isf", "w")
+        File::delete(Media::Folder_Players + "#{@name}.isf") if File.exist?(Media::Folder_Players + "#{@name}.isf")
+        f = File.open(Media::Folder_Players + "#{@name}.isf", "w")
         Marshal.dump(Difficulty.get, f)
         Marshal.dump(convert_level_to_array(@level), f)
         Marshal.dump(convert_shi_coins(@collected_shi_coins), f)
@@ -1480,7 +1480,7 @@ class Game < Window
     
     def load_state_in_hash(name)
         state_data = {}
-        f = File.open(Media::Folder_Players + "#{name}.isf", "r")
+        f = File.open(Media::Folder_Players + "#{name}.isf", "rb")
         state_data["Difficulty"] = Marshal.load(f)
         state_data["Level"] = convert_level_to_string(Marshal.load(f))
         state_data["Shi Coins"] = reconvert_shi_coins(Marshal.load(f))
@@ -1673,7 +1673,7 @@ class Game < Window
         else
             if @gameover_flag && !@semi_halted then
                 Debug::output("Gameover")
-                if File.exist?(Media::Folder_Players + "#@name.isf") then
+                if File.exist?(Media::Folder_Players + "#{@name}.isf") then
                     load_state
                 else
                     @level = "1-1-1"
