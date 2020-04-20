@@ -7,7 +7,7 @@ The protagonist is Inuhh, a dog, whose world got invaded by a weird alien race, 
 
 ## Instructions and informations
 
-Current version of the game: 1.0.1 (May 2nd 2019)
+Current version of the game: 1.1.0 (in development)
 
 ### I am on Windows and lazy
 
