@@ -2311,8 +2311,17 @@ class Game < Window
                     @debug_field.draw
                 end
                 translate(-@camera_x, -@camera_y) do
+                    @map.draw((@camera_x/50).floor, (@camera_y/50).floor) if !@halted
+                    @map.warps.each { |w| w.draw }
+                    @entity_triggers.each { |t| t.draw }
                     @gems.each { |g| g.draw }
                     @spawners.each { |s| s.draw }
+                    @signposts.each { |p| p.draw }
+                    @residues.reject! do |r|
+                        r.draw
+                        r.counter -= 1 if !@halted && !@semi_halted
+                        r.counter == 0
+                    end
                     @enemies.each do |e|
                         e.draw
                         if e.boss then
@@ -2320,23 +2329,15 @@ class Game < Window
                             @font.draw(Enemy_Datas.n_index[Enemy_Datas.c_index.index(e.class)], e.x-e.xsize, e.y-2*e.ysize-40, ZOrder::UI, 1.0, 1.0, 0xffff0000)
                         end
                     end
-                    @map.draw((@camera_x/50).floor, (@camera_y/50).floor) if !@halted
-                    @map.warps.each { |w| w.draw }
-                    @entity_triggers.each { |t| t.draw }
-                    @signposts.each { |p| p.draw }
-                    @projectiles.each { |p| p.draw }
                     @inuhh.draw
+                    @projectiles.each { |p| p.draw }
                     @messages.reject! do |m|
                         @font.draw("#{m[0]}", m[1], m[2], ZOrder::UI, [m[5],5.0].min, [m[6],5.0].min, m[7])
                         m[3] -= 1 if !@halted && !@semi_halted
                         m[2] -= 1 if m[4] && !@halted && !@semi_halted
                         m[3] == 0 # Delete entry if counter ran out
                     end
-                    @residues.reject! do |r|
-                        r.draw
-                        r.counter -= 1 if !@halted && !@semi_halted
-                        r.counter == 0
-                    end
+                    
                     bbc = 0
                     @boost_bars.each do |b|
                         if b then
