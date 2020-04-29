@@ -1465,7 +1465,7 @@ class Game < Window
     
     def save_state
         File::delete(Media::Folder_Players + "#{@name}.isf") if File.exist?(Media::Folder_Players + "#{@name}.isf")
-        f = File.open(Media::Folder_Players + "#{@name}.isf", "w")
+        f = File.open(Media::Folder_Players + "#{@name}.isf", "wb")
         Marshal.dump(Difficulty.get, f)
         Marshal.dump(convert_level_to_array(@level), f)
         Marshal.dump(convert_shi_coins(@collected_shi_coins), f)
