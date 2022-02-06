@@ -1,77 +1,79 @@
-require 'mathn'
-
 module Collider
-    
+
     ELLIPTIC = 1
-    RECTANGLE = 2 # Not yet implemented
-    
-    def self.test_collision(entity_1, entity_2)
+
+	def self.test_collision(entity_1, entity_2)
         if entity_1.box == ELLIPTIC && entity_2.box == ELLIPTIC then
             self.elliptic(entity_1.xsize, entity_1.ysize, entity_2.xsize, entity_2.ysize, entity_1.x-entity_2.x, entity_1.y-entity_1.ysize-entity_2.y+entity_2.ysize)
         end
     end
-    
-    def self.circle_square(radius, circle_x, circle_y, size, square_x, square_y)
-        dx = circle_x - square_x
-        dy = circle_y - square_y
-        
-        if (dx > size + radius) || (dy > size + radius) then
-            return false
-        end
-        if (dx <= size) || (dy <= size) then
-            return true
-        end
-        
-        cd = (dx - size)**2 + (dy - size)**2
-        return (cd <= radius**2)
-    end
-    
-    def self.elliptic(first_a, first_b, second_a, second_b, xdiff, ydiff) # Highly dangerous!!!
-        a_ = first_a
-        b_ = first_b
-        c_ = second_a
-        d_ = second_b
-        dx_ = xdiff
-        dy_ = ydiff
-        
-        a = a_*a_
-        b = b_*b_
-        c = c_*c_
-        d = d_*d_
-        dx = dx_*dx_
-        dy = dy_*dy_
-        
-        return false if [dx,dy].max > 2*(a+c) # Exclude impossible collisions
-        
-        coeff_0 = 1.0/(c*d)
-        coeff_1 = (-a*b-b*c-a*d+b*dx+a*dy)/(a*b*c*d)
-        coeff_2 = (b*c+a*d+c*d-d*dx-c*dy)/(a*b*c*d)
-        coeff_3 = -1.0/(a*b)
-        
-        points = Polythree.solve(coeff_3, coeff_2, coeff_1, coeff_0)
-        ret = points.count {|p| !(p.imag.abs > 0.0001) && p.real < 0.0}
-        
-        return (ret <= 1)
-    end
-    
-end
 
-module Polythree
-    
-    SQRT_THREE = Math::sqrt(3)
-    UNIT_ROOTS = [Complex(1,0), Complex(-1/2, SQRT_THREE/2), Complex(-1/2, -SQRT_THREE/2)]
-    
-    def self.solve(a, b, c, d)
-        discr_0 = b*b - 3*a*c
-        discr_1 = 2*b*b*b - 9*a*b*c + 27*a*a*d
-        c = Math::cbrt((discr_1 + Math::sqrt(discr_1*discr_1 - 4*discr_0*discr_0*discr_0))/2)
-        ret = []
-        0.upto(2) do |i|
-            ret[i] = -(b + UNIT_ROOTS[i]*c + discr_0/(UNIT_ROOTS[i]*c))/(3*a)
-        end
-        return ret
-    end
-    
-end
+    def self.elliptic(a1, b1, a2, b2, dx, dy)
+        # Helper terms.
 
-# Source of elliptical collision algorithm: http://www.csis.hku.hk/research/techreps/document/TR-2005-03.pdf
+		a1_squared = a1 * a1
+		b1_squared = b1 * b1
+		a2_squared = a2 * a2
+		b2_squared = b2 * b2
+		
+		dx_squared = dx * dx
+		dy_squared = dy * dy
+
+		# Test if the circles spanned by the bigger semiaxes collide.
+
+		return false if [dx_squared, dy_squared].max > 2.0 * [(a1_squared + a2_squared), (b1_squared + b2_squared)].max
+
+		# Construct the characteristic polynomial f(x) for both ellipse matrices.
+		# If and only if f(x) has less than two negative real roots, the ellipses collide.
+
+		coeff_0 = a1_squared * b1_squared
+		coeff_1 = (-a1_squared * b1_squared - b1_squared * a2_squared - a1_squared * b2_squared + b1_squared * dx_squared + a1_squared * dy_squared)
+		coeff_2 = (b1_squared * a2_squared + a1_squared * b2_squared + a2_squared * b2_squared - b2_squared * dx_squared - a2_squared * dy_squared)
+		coeff_3 = -a2_squared * b2_squared
+
+		# Determine the values of f(x) at negative infinity and at zero.
+
+		lower_limit = (coeff_3.abs > 0.0 ? -coeff_3 : (coeff_2.abs > 0.0 ? coeff_2 : (coeff_1.abs > 0.0 ? -coeff_1 : coeff_0)))
+		value_at_zero = coeff_0
+
+		# Calculate the derivative f'(x) of f(x) to help determine root positions,
+		# since calculating roots of a third-order polynomial is quite slow.
+
+		deriv_0 = coeff_1
+		deriv_1 = 2.0 * coeff_2
+		deriv_2 = 3.0 * coeff_3
+
+		discriminant_of_derivative = deriv_1 * deriv_1 - 4 * deriv_2 * deriv_0
+
+		return true if discriminant_of_derivative <= 0.0
+
+		# Find out the extrema of f(x) by using the pq formula to solve f'(x)=0.
+
+		denominator_term = 1.0 / (2.0 * deriv_2)
+
+		base_term = -deriv_1 * denominator_term
+		sqrt_term = Math.sqrt(discriminant_of_derivative) * denominator_term.abs
+
+		lower_extremum = base_term - sqrt_term
+		upper_extremum = base_term + sqrt_term
+
+		# If the lower extremum is higher than zero, we have less than two roots.
+
+		return true if lower_extremum >= 0.0
+
+		# Finally, just count the roots by counting any sign changes.
+
+		lower_extremum_square = lower_extremum * lower_extremum
+		lower_extremum_cubic = lower_extremum_square * lower_extremum
+
+		lower_extremum_value = coeff_0 + coeff_1 * lower_extremum + coeff_2 * lower_extremum_square + coeff_3 * lower_extremum_cubic
+
+		upper_extremum_square = upper_extremum * upper_extremum
+		upper_extremum_cubic = upper_extremum_square * upper_extremum
+
+		upper_extremum_value = coeff_0 + coeff_1 * upper_extremum + coeff_2 * upper_extremum_square + coeff_3 * upper_extremum_cubic
+
+		return (lower_limit * lower_extremum_value >= 0.0 && value_at_zero * upper_extremum_value >= 0.0)
+    end
+
+end
