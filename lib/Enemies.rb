@@ -572,7 +572,7 @@ module Enemies
     Shirse = 53
     Shiteor = 54
     Shitizen = 55
-    Shinded = 56
+    Shitraw = 56
     Shilevator = 57
     Shibmarine_Z = 58
     Shignite = 59
@@ -726,7 +726,7 @@ module Enemy_Datas
     Enemy_Shirse = Enemy_Data.new(Enemies::Shirse) # 53
     Enemy_Shiteor = Enemy_Data.new(Enemies::Shiteor) # 54
     Enemy_Shitizen = Enemy_Data.new(Enemies::Shitizen) # 55
-    Enemy_Shinded = Enemy_Data.new(Enemies::Shinded) # 56
+    Enemy_Shitraw = Enemy_Data.new(Enemies::Shitraw) # 56
     Enemy_Shilevator = Enemy_Data.new(Enemies::Shilevator) # 57
     Enemy_Shibmarine_Z = Enemy_Data.new(Enemies::Shibmarine_Z) # 58
     Enemy_Shignite = Enemy_Data.new(Enemies::Shignite) # 59
@@ -855,7 +855,7 @@ module Enemy_Datas
                      Enemy_Shipple, Enemy_Moleshi, Enemy_Shitor, Enemy_Shiparrow, Enemy_Shipectral, Enemy_Koroshi, Enemy_Invinshi, Enemy_Sushi, Enemy_Daishi_X,
                      Enemy_Daishi_Y, Enemy_Khashi, Enemy_Shiturn, Enemy_Pushi, Enemy_TNShi, Enemy_Nukeshi, Enemy_Elashi, Enemy_Shilat, Enemy_Platisshi,
                      Enemy_Shireen, Enemy_Shirror, Enemy_Boxhi, Enemy_Shicavator, Enemy_Shimalaya, Enemy_Shirill, Enemy_Parashi, Enemy_Shief, Enemy_Shillar,
-                     Enemy_Shicopter, Enemy_Shirse, Enemy_Shiteor, Enemy_Shitizen, Enemy_Shinded, Enemy_Shilevator, Enemy_Shibmarine_Z, Enemy_Shignite,
+                     Enemy_Shicopter, Enemy_Shirse, Enemy_Shiteor, Enemy_Shitizen, Enemy_Shitraw, Enemy_Shilevator, Enemy_Shibmarine_Z, Enemy_Shignite,
                      Enemy_Quarshi, Enemy_Quanshi, Enemy_Shitar, Enemy_Mayshi, Enemy_Shimmy, Enemy_Shilopard, Enemy_Poltershi, Enemy_Demolishi, Enemy_Shiredder,
                      Enemy_Extashi, Enemy_Shilato, Enemy_Climbshi, Enemy_Shicicle, Enemy_Rampashi, Enemy_Turboshi, Enemy_Shireball, Enemy_Erupshi, Enemy_Shivvy,
                      Enemy_Reapshi, Enemy_Shiborg, Enemy_Shinegun, Enemy_Shi_52, Enemy_Shinamite, Enemy_Hovershi, Enemy_Shirman, Enemy_Raishi, Enemy_Multishi,
@@ -865,7 +865,7 @@ module Enemy_Datas
         @@c_index = [Chishi, Daishi, Gasshi, Shipike, Enershi, Shiroplane, Shibmarine, Shilo, Neshi, Watershi, Shibmarine_D, Kamigasshi, Chishi_X, Chishi_Y, Shihog,
                      Shistol, Shizooka, Gattershi, Grasshi, Shitomium, Shilectron, Takashi, Yasushi, Gammarine, Shitake, Shipple, Moleshi, Shitor, Shiparrow,
                      Shipectral, Koroshi, Invinshi, Sushi, Daishi_X, Daishi_Y, Khashi, Shiturn, Pushi, TNShi, Nukeshi, Elashi, Shilat, Platisshi, Shireen,
-                     Shirror, Boxhi, Shicavator, Shimalaya, Shirill, Parashi, Shief, Shillar, Shicopter, Shirse, Shiteor, Shitizen, Shinded, Shilevator,
+                     Shirror, Boxhi, Shicavator, Shimalaya, Shirill, Parashi, Shief, Shillar, Shicopter, Shirse, Shiteor, Shitizen, Shitraw, Shilevator,
                      Shibmarine_Z, Shignite, Quarshi, Quanshi, Shitar, Mayshi, Shimmy, Shilopard, Poltershi, Demolishi, Shiredder, Extashi, Shilato, Climbshi,
                      Shicicle, Rampashi, Turboshi, Shireball, Erupshi, Shivvy, Reapshi, Shiborg, Shinegun, Shi_52, Shinamite, Hovershi, Shirman, Raishi, Multishi,
                      Targeshi, Shiprinkler, Hyashi, Shidacea, Treashi, Launshi, Loxhi, Unloxhi, Comm_Araphaw, Comm_Unhorqh, Comm_Irnovel, Adm_Aromtharag, Shinsaw,
@@ -875,7 +875,7 @@ module Enemy_Datas
                      "Takashi", "Yasushi", "Gammarine", "Shitake", "Shipple", "Moleshi", "Shitor", "Shiparrow", "Shipectral", "Koroshi", "Invinshi",
                      "Sushi", "Daishi X", "Daishi Y", "Khashi", "Shiturn", "Pushi", "TNShi", "Nukeshi", "Elashi", "Shilat", "Platisshi", "Shireen",
                      "Shirror", "Boxhi", "Shicavator", "Shimalaya", "Shirill", "Parashi", "Shief", "Shillar", "Shicopter", "Shirse", "Shiteor", "Shitizen",
-                     "Shinded", "Shilevator", "Shibmarine Z", "Shignite", "Quarshi", "Quanshi", "Shitar", "Mayshi", "Shimmy", "Shilopard", "Poltershi",
+                     "Shitraw", "Shilevator", "Shibmarine Z", "Shignite", "Quarshi", "Quanshi", "Shitar", "Mayshi", "Shimmy", "Shilopard", "Poltershi",
                      "Demolishi", "Shiredder", "Extashi", "Shilato", "Climbshi", "Shicicle", "Rampashi", "Turboshi", "Shireball", "Erupshi", "Shivvy",
                      "Reapshi", "Shiborg", "Shinegun", "Shi-52", "Shinamite", "Hovershi", "Shirman", "Raishi", "Multishi", "Targeshi", "Shiprinkler",
                      "Hyashi", "Shidacea", "Treashi", "Launshi", "Loxhi", "Unloxhi", "Cm. Araphaw", "Cm. Unhorqh", "Cm. Irnovel", "Ad. Aromtharag", "Shinsaw",

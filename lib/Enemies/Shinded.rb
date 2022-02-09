@@ -1,4 +1,4 @@
-class Shinded < Enemy
+class Shitraw < Enemy
     
     def activation
         @score = 7000
@@ -10,9 +10,9 @@ class Shinded < Enemy
         @random_jump_delay = 500 if Difficulty.get > Difficulty::NORMAL
         @hp = 3
         @speed = 3
-        load_graphic("Shinded")
-        @description = "Oppressed Shi member with some spikey hat.
-        Not that strong but very fast.
+        load_graphic("Shitraw")
+        @description = "Feral Shi member used as slave.
+        Not that strong but very fast. Has spikes.
         It was blinded slightly because it must not
         see the wealth of the Shitizens.
         Lives near Pondton City."
