@@ -143,6 +143,7 @@ class Enemy < Entity
         @cur_image = @jump
         @damage_counter = 20
         if @hp <= 0 then
+            @hp = 0
             @living = false
         elsif (@inuhh.x - @x) < 320 && (@inuhh.y - @y) < 240 then
             if value > 0 then

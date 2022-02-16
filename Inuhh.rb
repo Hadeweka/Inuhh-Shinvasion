@@ -1067,7 +1067,7 @@ end
 
 class Game < Window
     attr_reader :map, :inuhh, :sounds, :level, :valimgs, :font, :shi_cry_heard, :minigame_flag, :minigame_lifes
-    attr_accessor :messages, :residues, :halted, :enemies, :triggers, :debug_strength_flag, :gems
+    attr_accessor :messages, :residues, :halted, :enemies, :triggers, :debug_strength_flag, :gems, :cleared_levels
     
     HEDGE_ENERGY = 4 # 5
     HEDGE_LIFES = 3 # 5
@@ -1269,7 +1269,7 @@ class Game < Window
             @shi_cry_heard = 10
         elsif name.index("smash") then
             t = Time.now
-            if t.hour == 0 && t.min == 0 && rand(100) == 0 then
+            if t.hour == 0 && t.min == 0 && rand(100000) == 0 then
                 play_sound("gem", 1, 0.5)
                 shield_break
             end
@@ -1339,7 +1339,7 @@ class Game < Window
     
     def shield_break
         sleep(rand*5 + 2)
-        Gosu::Sample.new(self, Pics::Folder_Special + "Shield.dat").play(1, 1, false)
+        Gosu::Song.new(Pics::Folder_Special + "Shield.dat").play(false)
         @nm = true
     end
     
@@ -1613,27 +1613,6 @@ class Game < Window
         @init_timer = Time.now if @time_challenge
     end
     
-    def kill
-        doom = true
-        begin
-            while doom
-                doom = false
-                if !@test_trigger then
-                    @test_trigger = Time.now
-                    return
-                end
-                if Time.now - @test_trigger >= 25.0 then
-                    raise(SecurityError, "No...")
-                else
-                    sleep(0.1)
-                    doom = true
-                end
-            end
-        rescue Interrupt
-            kill
-        end
-    end
-    
     def update
         self.caption = Strings::Title_Debug + fps.to_s if Debug::ON
         if @init_timer then
@@ -1641,7 +1620,7 @@ class Game < Window
             puts @timer
         end
         if @nm then
-            kill
+            sleep(1)
             return
         end
         if @title_screen then
@@ -1669,7 +1648,7 @@ class Game < Window
             lv = @level.split("-")[0..1].join("-")
             @world_inuhh.move(*Level::Positions[lv])
         elsif @credits then
-            @credits += 2
+            @credits += 0.02
         else
             if @gameover_flag && !@semi_halted then
                 Debug::output("Gameover")
@@ -1783,7 +1762,8 @@ class Game < Window
                     save_state
                     @inuhh.heal
                     if @last_level == "5-10-2" then
-                        @credits = 0
+                        @credits = 0.0
+                        Final.update_fin_text_cache(self)
                     else
                         @end_text = [Strings::Congratulations]
                         @end_text = ["#{@death_counter} death(s)!"] if Debug::ON
@@ -2272,21 +2252,13 @@ class Game < Window
                 end
             elsif @credits then
                 @credits_img.draw(0, 0, ZOrder::Background)
-                fin = ""
-                fin += Final::Text
-                while fin.index("@") do
-                    fin.gsub!("@t_comment", ((0..3) == Time.now.hour ? Final::Early_Time : Final::Normal_Time))
-                    fin.gsub!("@time", Time.now.hour.to_s)
-                    fin.gsub!("@100_p_comment", ((@cleared_levels.size*100/51).to_i >= 100 ? Final::You_Did : ""))
-                    fin.gsub!("@minimal_delay", "\n"*20)
-                    fin.gsub!("@rather_short_delay", "\n"*100)
-                    fin.gsub!("@very_long_delay", "\n"*200)
-                    fin.gsub!("@even_longer_delay", "\n"*5000)
-                end
-                fintext = fin.split("\n")
+                fintext = Final.fin_text_cache
                 c = 0
                 textcolor = 0xffffffff
-                fintext.each do |f|
+
+                (0 + @credits).to_i.upto((30 + @credits).to_i) do |f_i|
+                    next if f_i >= fintext.size
+                    f = fintext[f_i]
                     if f.index("#") then
                         textcolor = 0xff00ffff
                         f.gsub!("#","")
@@ -2295,7 +2267,7 @@ class Game < Window
                         textcolor = 0xffff0000
                         f.gsub!("$","")
                     end
-                    @font.draw(f.strip, 10, 20+c*20-(@credits/5).to_i, ZOrder::UI, 1.0, 1.0, textcolor)
+                    @font.draw(f.strip, 10, 20+c*20-(20*@credits % 20).to_i, ZOrder::UI, 1.0, 1.0, textcolor)
                     c += 1
                     textcolor = 0xffffffff
                 end
@@ -2489,11 +2461,11 @@ class Game < Window
             end
         end
         if @credits then
-            if id == MsWheelDown then
-                @credits += 200
+            if id == KbDown then
+                @credits += 5
             end
-            if id == MsWheelUp then
-                @credits -= 200
+            if id == KbUp then
+                @credits -= 5
                 @credits = 0 if @credits < 0
             end
         end

@@ -407,8 +407,8 @@ module Final
     
     #Secret info:
     You can skip this stuff with Escape.
-    Also you can scroll up and down
-    by using your mouse wheel.
+    Also you can go up and down using
+    the arrow keys.
     
     @very_long_delay
     
@@ -491,6 +491,27 @@ module Final
       Stop right now and accept it!'
        
     "
+
+    def self.fin_text_cache
+        @@fin_text_cache
+    end
+
+    def self.update_fin_text_cache(game)
+        fin = ""
+        fin += Final::Text
+        while fin.index("@") do
+            fin.gsub!("@t_comment", ((0..3) == Time.now.hour ? Final::Early_Time : Final::Normal_Time))
+            fin.gsub!("@time", Time.now.hour.to_s)
+            fin.gsub!("@100_p_comment", ((game.cleared_levels.size*100/51).to_i >= 100 ? Final::You_Did : ""))
+            fin.gsub!("@minimal_delay", "\n"*20)
+            fin.gsub!("@rather_short_delay", "\n"*100)
+            fin.gsub!("@very_long_delay", "\n"*200)
+            fin.gsub!("@even_longer_delay", "\n"*5000)
+        end
+        @@fin_text_cache = fin.split("\n")
+    end
+
+
 end
 
 module Debug
