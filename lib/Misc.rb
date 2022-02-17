@@ -147,7 +147,7 @@ module Strings
     Hedge_Energy = "1   -   Max Energy+1"
     Hedge_Lifes = "2   -   Min Lifes+1"
     Hedge_Strength = "3   -   Strength+1"
-    Hedge_Defense = "4	-	Defense+1"
+    Hedge_Defense = "4   -   Defense+1"
     Hedge_Shi_Coins = " Shi Coins)"
     Hedge_Own_Shi_Coins = "Shi Coins: "
     Hedge_Mysteriorbs = "(5 Mysteriorbs)"

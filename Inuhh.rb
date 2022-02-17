@@ -1010,6 +1010,7 @@ class Map
     end
     
     def water(x, y, shi_friendly=false)
+        return true if y >= @height*50 && water(x, @height*50-25)
         return false if invalid(x, y)
         return false if !@tiles[(x / 50).floor][(y / 50).floor]
         return false if shi_friendly && Tile_Datas::Index[@tiles[(x / 50).floor][(y / 50).floor]].tile == Tiles::Shi_Water
@@ -1657,6 +1658,8 @@ class Game < Window
                 else
                     @level = "1-1-1"
                     @collected_shi_coins = {}
+                    silence
+                    @world_map = true
                 end
                 @inuhh.full_heal
                 @reload = true
