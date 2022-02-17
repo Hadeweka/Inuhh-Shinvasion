@@ -1,5 +1,6 @@
 class Collectible
-    attr_reader :x, :y, :constant, :transform, :help
+    attr_reader :constant, :transform, :help, :image
+    attr_accessor :x, :y
     
     def initialize(image, x, y)
         @image = image
@@ -16,6 +17,7 @@ class Collectible
         @usable = false
         @usable_once = false
         @uses = 1
+        @collection_cooldown = 0
         @own_sound = false
         @transform = false
         @text_color = 0xffffff00
@@ -27,6 +29,10 @@ class Collectible
     
     def play_used_sound(window, inuhh)
         
+    end
+
+    def modify_uses(uses)
+        @uses = uses
     end
     
     def draw
@@ -43,7 +49,15 @@ class Collectible
     end
     
     def update(window, inuhh)
-        
+        @collection_cooldown -= 1 if @collection_cooldown > 0
+    end
+
+    def lock_collection
+        @collection_cooldown = 60
+    end
+
+    def locked?
+        @collection_cooldown > 0
     end
     
     def give_inuhh(window, inuhh)

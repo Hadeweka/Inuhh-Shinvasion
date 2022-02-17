@@ -278,8 +278,22 @@ class Inuhh < Entity
         @item_amount = 0
         reset_images
     end
+
+    def drop_item
+        dropped_collectible = @item
+        dropped_collectible.x = (@x/50).floor * 50 + 25
+        dropped_collectible.y = (@y/50).floor * 50 + 50
+        dropped_collectible.lock_collection
+        dropped_collectible.modify_uses(@item_amount)
+
+        @window.gems.push(dropped_collectible)
+    end
     
     def set_item(collectible, amount)
+        if @item
+            drop_item
+        end
+        
         @item = collectible
         @item_amount = amount
         if @item.transform then
@@ -290,7 +304,9 @@ class Inuhh < Entity
     end
     
     def add_item(collectible, amount)
-        if collectible.class != @item.class then
+        if !@item
+            set_item(collectible, amount)
+        elsif collectible.class != @item.class then
             set_item(collectible, amount)
         else
             @item_amount += amount
@@ -641,8 +657,8 @@ class Inuhh < Entity
         # Same as in the tutorial game.
         gems.reject! do |c|
             if (c.x - @x).abs < 2*@xsize && (c.y - @y + @ysize).abs < 2*@ysize
-                c.collect(@window, self)
-                !c.constant
+                c.collect(@window, self) unless c.locked?
+                !c.constant && !c.locked?
             end
         end
         if @collectibles[Objects::Coin] >= 100 then

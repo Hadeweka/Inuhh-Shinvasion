@@ -7,6 +7,7 @@
 #### Balance changes
 
 * [X] Threshold for Inuhh to die in water at the lower border is now more merciful
+* [X] Exchanging items will drop the old item instead of deleting it
 
 #### Bugfixes
 
