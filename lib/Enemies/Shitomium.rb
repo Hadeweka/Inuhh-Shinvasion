@@ -27,8 +27,8 @@ class Shitomium < Enemy
         load_graphic("Shitomium")
         @description = "Impressive and very strong Shi with many dangerous
         traits. Hovers in air, hunts its enemies and summons
-        Shilectrons to guard it if in danger. Its defense
-        increases by 2 for every Shilectron.
+        Shilectrons to guard it if in danger, which are
+        pushed to higher energy levels if attacked.
         Resides in the Temple of Dyunteh."
     end
     
@@ -40,7 +40,8 @@ class Shitomium < Enemy
         super
         @vy = @speed if @inuhh.y > @y
         @vy = -@speed if @inuhh.y < @y
-        @vy = 5*@speed if @inuhh.y - @y > 200
+        @vy = 10*@speed if @inuhh.y - @y > 200
+        @vy = 20*@speed if @inuhh.y - @y > 1000
     end
     
     def custom_mechanics
@@ -83,7 +84,7 @@ class Shitomium < Enemy
             @respawn_delay = 200
         end
         @shilectrons.reject! do |s|
-            s.turn_to(@dir) if Difficulty.get > Difficulty::HARD
+            s.turn_to(@dir) if Difficulty.get >= Difficulty::HARD
             s.hp <= 0
         end
         @defense = (@shilectrons.size == 0 ? 0 : 1000)
@@ -101,7 +102,8 @@ class Shitomium < Enemy
             e.damage(1000)
             true
         end
-        @window.gems.push(Object_Datas::C_Index[Objects::Key].new(@window.valimgs[Objects::Key], @inuhh.x + 25, @inuhh.y + 5 + 50))
+        drop = Object_Datas::C_Index[Objects::Key].new(@window.valimgs[Objects::Key], @inuhh.x, @inuhh.y)
+        drop.collect(@window, @inuhh)
     end
     
     def draw
