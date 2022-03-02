@@ -8,11 +8,22 @@
 
 * [X] Threshold for Inuhh to die in water at the lower border is now more merciful
 * [X] Exchanging items will drop the old item instead of deleting it
+* [ ] Several others (testing)
+
+#### Aesthetic changes
+
+* [X] Larger Shi will now make deeper sounds
+* [X] Reworked old Shinded enemy into new Shitraw enemy
 
 #### Bugfixes
 
-* [X] Fixed credits
+* [X] Fixed and improved credits
 * [X] Exiting level on new save now leads back to the world map
+
+#### Code quality
+
+* [X] Split up main file into several parts
+* [ ] Put key bindings in single file
 
 
 

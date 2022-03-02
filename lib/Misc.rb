@@ -431,6 +431,10 @@ module Final
     I see. You are one of THOSE people...
     Maybe I could put some satanic messages
     here... backwards, of course.
+
+    @rather_short_delay
+
+    EREH EROL ON
     
     @rather_short_delay
     
@@ -454,42 +458,39 @@ module Final
     
     @even_longer_delay
     
-    ???: 'Just give up.'
+    Just give up.
     
     @even_longer_delay
     
-    ???: 'There is nothing you can do 
-      right now.'
+    There is nothing you can do
+    right now.
       
     @even_longer_delay
     
-    ???: 'It didn't go well then, 
-      why should it now?'
-      
-    @even_longer_delay
-    
-    ???: 'You saw those ruins.'
-    
-    @even_longer_delay
-    
-    ???: 'You don't know what you're 
-      messing with.'
-      
-    @even_longer_delay
-    
-    ???: 'You don't know WHOM you're 
-      messing with.'
-    
-    @even_longer_delay
-    
-    ???: 'You need to know where 
-      to stop.'
+    It did not work last time, why
+    should it work now?
 
     @even_longer_delay
     
-    ???: 'You won't succeed.
-      Stop right now and accept it!'
-       
+    You need to know where to stop.
+      
+    @even_longer_delay
+    
+    You saw those ruins.
+    
+    @even_longer_delay
+    
+    You do not know what you are
+    messing with.
+      
+    @even_longer_delay
+    
+    You do not know WHOM you are
+    messing with.
+
+    @even_longer_delay
+    
+    You will not succeed. Accept it.
     "
 
     def self.fin_text_cache

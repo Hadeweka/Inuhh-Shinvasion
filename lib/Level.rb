@@ -1,3 +1,4 @@
+require "lib/Keys.rb"
 require "lib/Collider.rb"
 require "lib/Misc.rb"
 require "lib/Datas.rb"

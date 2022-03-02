@@ -91,6 +91,8 @@ class Enemy < Entity
         @jump_image = true
         @window = window
         @jumping = false
+        @synced_timer = 0
+        @synced_animation_delay = false
         @description = ""
         @vy = 0 # Vertical velocity
         @range = 200 # Range of interaction outside of camera
@@ -147,7 +149,7 @@ class Enemy < Entity
             @living = false
         elsif (@inuhh.x - @x) < 320 && (@inuhh.y - @y) < 240 then
             if value > 0 then
-                @window.play_sound("shi cry #{rand(5)+1}")
+                @window.play_sound("shi cry #{rand(5)+1}", 1.0 + (value - 1)*0.05, 1.0 - (@xsize >= 50 && @ysize >= 50 ? 0.25 : 0.0))
             elsif @sound_on
                 @window.play_sound("guard")
             end
@@ -236,6 +238,7 @@ class Enemy < Entity
     end
     
     def update(cam_x, cam_y)
+        @synced_timer += @synced_animation_delay if @synced_animation_delay
         @tics += 1
         @invul -= 1 if @invul > 0
         @inuhh = @window.inuhh
@@ -386,7 +389,11 @@ class Enemy < Entity
         if (move_x == 0 && !@dir_set)
             @cur_image = @standing if @damage_counter <= 0
         else
-            @cur_image = ((milliseconds / @anim_delay).floor % 2 == 0 || move_x == 0) ? @walk1 : @walk2 if @damage_counter <= 0
+            if @synced_animation_delay then
+                @cur_image = ((@synced_timer / @anim_delay).floor % 2 == 0 || move_x == 0) ? @walk1 : @walk2 if @damage_counter <= 0
+            else
+                @cur_image = ((milliseconds / @anim_delay).floor % 2 == 0 || move_x == 0) ? @walk1 : @walk2 if @damage_counter <= 0
+            end
         end
         if (@vy < 0) && @jump_image
             @cur_image = @jump
