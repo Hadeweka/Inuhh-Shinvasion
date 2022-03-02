@@ -18,6 +18,7 @@
 * [X] Shilectrons in Shitomium fight will now expand their radius and fluctuate if attacked
 * [X] Raised Shilectrons will eject sparks and revert to normal state
 * [X] Shitomium will revert Shilectron directions in Hard as well
+* [X] Kamigasshis, Moleshis and Shishires are now slightly visible before attacking
 
 ##### Levels
 
@@ -38,7 +39,7 @@
 #### Code quality
 
 * [X] Split up main file into several parts
-* [ ] Put key bindings in single file
+* [X] Put key bindings in single file
 
 
 
