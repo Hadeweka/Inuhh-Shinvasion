@@ -10,8 +10,8 @@ module Keys
   Enter = [Gosu::KbReturn]
   Escape = [Gosu::KbEscape]
   
-  ScrollDown = [Gosu::MsWheelDown]
-  ScrollUp = [Gosu::MsWheelUp]
+  ScrollDown = [Gosu::KbDown, Gosu::KbS]
+  ScrollUp = [Gosu::KbUp, Gosu::KbW]
   
   ToggleHUD = [Gosu::KbSpace]
   

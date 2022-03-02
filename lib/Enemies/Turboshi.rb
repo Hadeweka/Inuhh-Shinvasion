@@ -21,18 +21,18 @@ class Turboshi < Enemy
     
     def custom_mechanics
         if @inuhh.riding_entity == self then
-            if @window.button_down?(KbRightControl) || @window.button_down?(KbLeftControl) || @window.button_down?(KbLeftShift) || @window.button_down?(KbRightShift) then
+            if Keys::is_down?(self, Keys::Run) then
                 @vy -= 1
                 @vy = -10 if @vy < -10
             else
                 @vy += 1
                 @vy = 10 if @vy > 10
             end
-            if @window.button_down?(KbRight) then
+            if Keys::is_down?(self, Keys::Right) then
                 @dir = :right
                 @speed = 2
                 @moving = true
-            elsif @window.button_down?(KbLeft) then
+            elsif Keys::is_down?(self, Keys::Left) then
                 @dir = :left
                 @speed = 2
                 @moving = true

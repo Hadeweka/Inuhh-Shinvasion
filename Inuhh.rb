@@ -597,20 +597,20 @@ class Game < Window
         if @title_screen then
             
         elsif @name_input then
-            if button_down?(KbDown) || button_down?(KbS) then
+            if Keys::is_down?(self, Keys::Down) then
                 @name_input_scroller += 1
                 @name_input_scroller = @max_name_input_scroller if @name_input_scroller >= @max_name_input_scroller
             end
-            if button_down?(KbUp) || button_down?(KbW) then
+            if Keys::is_down?(self, Keys::Up) then
                 @name_input_scroller -= 1
                 @name_input_scroller = 0 if @name_input_scroller <= 0
             end
         elsif @achievement_screen then
-            if button_down?(KbDown) || button_down?(KbS) then
+            if Keys::is_down?(self, Keys::Down) then
                 @achievement_scroller += 4
                 @achievement_scroller = @max_ach_scroller if @achievement_scroller >= @max_ach_scroller
             end
-            if button_down?(KbUp) || button_down?(KbW) then
+            if Keys::is_down?(self, Keys::Up) then
                 @achievement_scroller -= 4
                 @achievement_scroller = 0 if @achievement_scroller <= 0
             end
@@ -643,8 +643,8 @@ class Game < Window
             @warp_delay -= 1
             move_x = 0
             dis = (@debug_speed_flag ? 20 : 4)
-            move_x -= dis if button_down?(KbLeft) || button_down?(KbA) # Nicer, please.
-            move_x += dis if button_down?(KbRight) || button_down?(KbD)
+            move_x -= dis if Keys::is_down?(self, Keys::Left)
+            move_x += dis if Keys::is_down?(self, Keys::Right)
             @inuhh.update(move_x) if !@halted && !@semi_halted && !@reload # Here can something be optimized!
             @entity_triggers.each { |t| t.update } if !@halted && !@semi_halted && !@reload
             if !@halted && !@semi_halted then
@@ -666,12 +666,12 @@ class Game < Window
                     end
                 end
             end
-            if button_down?(KbUp) || button_down?(KbW) then
+            if Keys::is_down?(self, Keys::Jump) then
                 @inuhh.try_to_jump
             else
                 @inuhh.stop_jumping
             end
-            if button_down?(KbLeftControl) || button_down?(KbRightControl) || button_down?(KbLeftShift) || button_down?(KbRightShift) then
+            if Keys::is_down?(self, Keys::Run) then
                 @inuhh.run
             else
                 @inuhh.stop_running
@@ -1387,7 +1387,7 @@ class Game < Window
     end
     
     def button_down(id) # Some self-references here... maybe?
-        if id == KbEscape then
+        if Keys::Escape.include?(id) then
             deactivate_debug # Important!
             if @hedgehound then # Kill without Game Over Message
                 @semi_halted = false
@@ -1434,16 +1434,16 @@ class Game < Window
             end
         end
         if @credits then
-            if id == KbDown then
+            if Keys::ScrollDown.include?(id) then
                 @credits += 5
             end
-            if id == KbUp then
+            if Keys::ScrollUp.include?(id) then
                 @credits -= 5
                 @credits = 0 if @credits < 0
             end
         end
         if @title_screen then
-            if id == KbReturn then
+            if Keys::Enter.include?(id) then
                 if @title_selection == 0 then
                     switch_to_name_selection
                 else
@@ -1451,59 +1451,59 @@ class Game < Window
                     @title_screen = false
                 end
             end
-            if id == KbUp || id == KbW then # If more options are added, this has to be rewritten.
+            if Keys::Up.include?(id) then # If more options are added, this has to be rewritten.
                 @title_selection = 0
             end
-            if id == KbDown || id == KbS then
+            if Keys::Down.include?(id) then
                 @title_selection = 1
             end
         elsif @name_input then
             if @difficulty_input then
-                if id == KbDown || id == KbS then
+                if Keys::Down.include?(id) then
                     @difficulty_choice += 1 if @difficulty_choice < @diff_names.size-1
                 end
-                if id == KbUp || id == KbW then
+                if Keys::Up.include?(id) then
                     @difficulty_choice -= 1 if @difficulty_choice > 0
                 end
-                if id == KbReturn then
+                if Keys::Enter.include?(id) then
                     Difficulty.set(@difficulty_choice)
                     @name_input = false
                     @difficulty_input = false
                 end
-            elsif id == KbReturn && @name_field.text != "" && !@difficulty_input then
+            elsif Keys::Enter.include?(id) && @name_field.text != "" && !@difficulty_input then
                 load_name_file(self.text_input.text)
             end
         elsif @achievement_screen then
-            if id == KbLeft || id == KbA then
+            if Keys::Left.include?(id) then
                 @selected_achievement -= 1
-            elsif id == KbRight || id == KbD then
+            elsif Keys::Right.include?(id) then
                 @selected_achievement += 1
             end
         elsif @world_map then
-            if id == KbSpace then
+            if Keys::ToggleHUD.include?(id) then
                 @draw_world_hud = !@draw_world_hud
             end
-            if (id == Kb1) && @i_collectibles[Objects::Gem] >= GEM_LIFES_1 then
+            if Keys::Gems1.include?(id) && @i_collectibles[Objects::Gem] >= GEM_LIFES_1 then
                 @i_collectibles[Objects::Gem] -= GEM_LIFES_1
                 @i_stats[Stats::Lifes] += 1
             end
-            if (id == Kb2) && @i_collectibles[Objects::Gem] >= GEM_LIFES_3 then
+            if Keys::Gems2.include?(id) && @i_collectibles[Objects::Gem] >= GEM_LIFES_3 then
                 @i_collectibles[Objects::Gem] -= GEM_LIFES_3
                 @i_stats[Stats::Lifes] += 3
             end
-            if (id == Kb3) && @i_collectibles[Objects::Gem] >= GEM_LIFES_5 then
+            if Keys::Gems2.include?(id) && @i_collectibles[Objects::Gem] >= GEM_LIFES_5 then
                 @i_collectibles[Objects::Gem] -= GEM_LIFES_5
                 @i_stats[Stats::Lifes] += 5
             end
-            if (id == Kb4) && @i_collectibles[Objects::Gem] >= GEM_LIFES_10 then
+            if Keys::Gems3.include?(id) && @i_collectibles[Objects::Gem] >= GEM_LIFES_10 then
                 @i_collectibles[Objects::Gem] -= GEM_LIFES_10
                 @i_stats[Stats::Lifes] += 10
             end
-            if (id == Kb5) && @i_collectibles[Objects::Gem] >= GEM_LIFES_100 then
+            if Keys::Gems5.include?(id) && @i_collectibles[Objects::Gem] >= GEM_LIFES_100 then
                 @i_collectibles[Objects::Gem] -= GEM_LIFES_100
                 @i_stats[Stats::Lifes] += 100
             end
-            if id == KbReturn then
+            if Keys::Enter.include?(id) then
                 if Minigames::World_Level_ID.index(@level.split("-")[0..1].join("-")) then
                     if !@minigame_confirmation then
                         @minigame_confirmation = true
@@ -1529,13 +1529,13 @@ class Game < Window
                 end
             end
             button_index = nil
-            if id == KbDown || id == KbS then
+            if Keys::Down.include?(id) then
                 button_index = 0
-            elsif id == KbLeft || id == KbA then
+            elsif Keys::Left.include?(id) then
                 button_index = 1
-            elsif id == KbRight || id == KbD then
+            elsif Keys::Right.include?(id) then
                 button_index = 2
-            elsif id == KbUp || id == KbW then
+            elsif Keys::Up.include?(id) then
                 button_index = 3
             end
             if button_index && !@minigame_confirmation then
@@ -1556,21 +1556,21 @@ class Game < Window
             if @hedgehound then
                 sc = @inuhh.collectibles[Objects::Shi_Coin]
                 mysteriorbs = (other_option(Other::Mysteriorb) ? other_option(Other::Mysteriorb).size : 0)
-                if id == Kb1 && sc >= hedge_energy then
+                if Keys::Gems1.include?(id) && sc >= hedge_energy then
                     @inuhh.pay_shi_coins(hedge_energy)
                     @inuhh.increase_stat(Stats::Max_Energy, 1)
                     @inuhh.heal
-                elsif id == Kb2 && sc >= hedge_lifes  then
+                elsif Keys::Gems2.include?(id) && sc >= hedge_lifes  then
                     @inuhh.pay_shi_coins(hedge_lifes)
                     @inuhh.increase_stat(Stats::Max_Lifes, 1)
                     @inuhh.increase_stat(Stats::Lifes, 1)
-                elsif id == Kb3 && sc >= hedge_strength  then
+                elsif Keys::Gems3.include?(id) && sc >= hedge_strength  then
                     @inuhh.pay_shi_coins(hedge_strength)
                     @inuhh.increase_stat(Stats::Strength, 1)
-                elsif id == Kb4 && sc >= hedge_defense then
+                elsif Keys::Gems4.include?(id) && sc >= hedge_defense then
                     @inuhh.pay_shi_coins(hedge_defense)
                     @inuhh.increase_stat(Stats::Defense, 1)
-                elsif id == Kb5 && mysteriorbs >= 5 && WORLD_6_ALLOWED then
+                elsif Keys::Gems5.include?(id) && mysteriorbs >= 5 && WORLD_6_ALLOWED then
                     @unlocked_levels.push("6-1") if !@unlocked_levels.index("6-1")
                     @level = "6-1-1"
                     change_world_img(@level.split("-")[0])
@@ -1579,11 +1579,11 @@ class Game < Window
                     save_state
                 end
             end
-            if id == KbSpace then
+            if Keys::UseItem.include?(id) then
                 @inuhh.use_item if !@halted && !@semi_halted
             end
             
-            if id == KbP then
+            if Keys::Pause.include?(id) then
                 @halted = !@halted if !@semi_halted && !@debug_console
             end
             
@@ -1597,7 +1597,7 @@ class Game < Window
                 end
             end
             
-            if id == KbF1 then
+            if Keys::Help.include?(id) then
                 if @minigame_flag then
                     @text = import_message(Minigames::Help_Entry[Minigames::World_Levels[@level.split("-")[0].to_i]])
                 end
@@ -1625,7 +1625,7 @@ class Game < Window
                 shield_break
             end
             
-            if id == KbReturn then
+            if Keys::Enter.include?(id) then
                 if @debug_console then
                     cmd = self.text_input.text
                     error = nil

@@ -24,16 +24,16 @@ class Shirse < Enemy
         else
             @abyss_turn = false
             @border_turn = false
-            if @window.button_down?(KbLeft) then
+            if Keys::is_down?(self, Keys::Left) then
                 @dir = :left
             end
-            if @window.button_down?(KbRight) then
+            if Keys::is_down?(self, Keys::Right) then
                 @dir = :right
             end
-            if @window.button_down?(KbSpace) then
+            if Keys::is_down?(self, Keys::UseItem) then
                 try_to_jump
             end
-            if @window.button_down?(KbLeftControl) || @window.button_down?(KbRightControl) || @window.button_down?(KbLeftShift) || @window.button_down?(KbRightShift)then
+            if Keys::is_down?(self, Keys::Run) then
                 @speed = 10
             else
                 @speed = 7

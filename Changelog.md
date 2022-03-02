@@ -33,6 +33,7 @@
 * [X] Fixed and improved credits
 * [X] Shitomium will now automatically give its dropped key to Inuhh
 * [X] Exiting level on new save now leads back to the world map
+* [X] Fixed Horshi and Turboshi not being able to be controlled with WASD
 
 #### Code quality
 
