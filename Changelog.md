@@ -22,7 +22,13 @@
 
 ##### Levels
 
-
+* [X] Lethal pits in Cleanbuil Ruins 2 are reduced to one marked pit with a Shipike at the bottom
+* [X] Added slightly more pickups to Cleanbuil Ruins 2
+* [X] Reduced number of enemies in Cleanbuil Ruins 2
+* [X] Added safer and more intuitive path to Shi coin in Dominwood East 1-2
+* [X] Added additional safe space for the Shi coin return path in Dominwood East 1-2
+* [X] Added secret path to gems in Dominwood East 2-1
+* [X] Simplified path to and return path from secret Shi coin in World 2
 
 #### Aesthetic changes
 
@@ -49,7 +55,7 @@
 
 ##### Levels
 
-* Fixed unfair Shi coin in 5-1-2
+* Fixed unfair Shi coin in Shi District 1-2
 
 
 
