@@ -14,11 +14,15 @@
 
 ##### Enemies
 
-* [X] Shilectrons have damage reduction to 1
-* [X] Shilectrons in Shitomium fight will now expand their radius and fluctuate if attacked
-* [X] Raised Shilectrons will eject sparks and revert to normal state
+* [X] Shilectron have damage reduction to 1
+* [X] Shilectron in Shitomium fight will now expand their radius and fluctuate if attacked
+* [X] Raised Shilectron will eject sparks and revert to normal state
 * [X] Shitomium will revert Shilectron directions in Hard as well
-* [X] Kamigasshis, Moleshis and Shishires are now slightly visible before attacking
+* [X] Kamigasshi, Moleshi and Shishire are now slightly visible before attacking
+* [X] Koroshi will now spit out other Shi in irregular intervals
+* [X] Koroshi crouch and subsequently jump at random and if damaged
+* [X] Landing Koroshi will emit a shockwave which pushes Inuhh up and away
+* [X] Koroshi might charge at Inuhh under certain circumstances
 
 ##### Levels
 
@@ -28,6 +32,7 @@
 * [X] Added safer and more intuitive path to Shi coin in Dominwood East 1-2
 * [X] Added additional safe space for the Shi coin return path in Dominwood East 1-2
 * [X] Added secret path to gems in Dominwood East 2-1
+* [X] Changed Dominwood East 3-3 level design completely
 * [X] Simplified path to and return path from secret Shi coin in World 2
 
 #### Aesthetic changes
@@ -38,7 +43,7 @@
 #### Bugfixes
 
 * [X] Fixed and improved credits
-* [X] Shitomium will now automatically give its dropped key to Inuhh
+* [X] Shitomium will now automatically give their dropped key to Inuhh
 * [X] Exiting level on new save now leads back to the world map
 * [X] Fixed Horshi and Turboshi not being able to be controlled with WASD
 
