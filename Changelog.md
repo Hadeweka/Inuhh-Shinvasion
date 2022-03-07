@@ -38,12 +38,12 @@
 * [X] Rearranged some coins in Nautawood 2-1 to avoid blind jumps
 * [X] Removed some enemies from Nautawood 2-2
 * [X] Marked safe points in Nautawood 2-2 with coins
-* [X] Simplified path to and return path from secret Shi coin in World 2
 * [X] Removed some enemies from Nautabyss 1
 * [X] Added additional helper platforms to Nautabyss 1-1
 * [X] Removed some enemies from Nautabyss 1-2
 * [X] Added some bones to Nautabyss 1-2
 * [X] Added warning sign to Nautabyss 1-2
+* [X] Simplified path to and return path from secret Shi coin in World 2
 
 #### Aesthetic changes
 
