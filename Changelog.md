@@ -33,12 +33,17 @@
 * [X] Added additional safe space for the Shi coin return path in Dominwood East 1-2
 * [X] Added secret path to gems in Dominwood East 2-1
 * [X] Changed Dominwood East 3-3 level design completely
+* [X] Removed first Shihog in Nautawood 2-1
+* [X] Rearranged some coins in Nautawood 2-1 to avoid blind jumps
+* [X] Removed some enemies from Nautawood 2-2
+* [X] Marked safe points in Nautawood 2-2 with coins
 * [X] Simplified path to and return path from secret Shi coin in World 2
 
 #### Aesthetic changes
 
 * [X] Larger Shi will now make deeper sounds
 * [X] Reworked old Shinded enemy into new Shitraw enemy
+* [ ] Shi will not be drawn while paused
 
 #### Bugfixes
 
@@ -46,6 +51,7 @@
 * [X] Shitomium will now automatically give their dropped key to Inuhh
 * [X] Exiting level on new save now leads back to the world map
 * [X] Fixed Horshi and Turboshi not being able to be controlled with WASD
+* [ ] Pressing Escape in pause screen will simply unpause
 
 #### Code quality
 
