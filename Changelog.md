@@ -14,7 +14,8 @@
 
 ##### Enemies
 
-* [X] Shilectron have damage reduction to 1
+* [X] Shilectron have damage reduction to 2
+* [X] Shilectron inflict minimal damage of 1
 * [X] Shilectron in Shitomium fight will now expand their radius and fluctuate if attacked
 * [X] Raised Shilectron will eject sparks and revert to normal state
 * [X] Shitomium will revert Shilectron directions in Hard as well
@@ -24,6 +25,7 @@
 * [X] Landing Koroshi will emit a shockwave which pushes Inuhh up and away
 * [X] Koroshi might charge at Inuhh under certain circumstances
 * [X] Shireen move with half speed (except in Doom difficulty)
+* [ ] Shicavator and Pacshi are not able to eat the map borders anymore
 
 ##### Levels
 
@@ -38,12 +40,20 @@
 * [X] Rearranged some coins in Nautawood 2-1 to avoid blind jumps
 * [X] Removed some enemies from Nautawood 2-2
 * [X] Marked safe points in Nautawood 2-2 with coins
-* [X] Removed some enemies from Nautabyss 1
+* [X] Removed some enemies from Nautabyss 1-1
 * [X] Added additional helper platforms to Nautabyss 1-1
 * [X] Removed some enemies from Nautabyss 1-2
 * [X] Added some bones to Nautabyss 1-2
 * [X] Added warning sign to Nautabyss 1-2
+* [X] Removed some enemies from Nautabyss 2-1
+* [X] Added coins and gems to Nautabyss 2-1
+* [X] Added additional rock to Nautabyss 2-1 to prevent premature death
+* [X] Removed some enemies from Nautabyss 2-2
+* [X] Added coins and gems to Nautabyss 2-2
+* [X] Added additional rock to Nautabyss 2-2 to prevent premature death
 * [X] Simplified path to and return path from secret Shi coin in World 2
+* [ ] Added better path to Shi coin in Park Avenue 1-2
+* [ ] Removed some enemies in Park Avenue 1-2
 
 #### Aesthetic changes
 
@@ -57,6 +67,7 @@
 * [X] Shitomium will now automatically give their dropped key to Inuhh
 * [X] Exiting level on new save now leads back to the world map
 * [X] Fixed Horshi and Turboshi not being able to be controlled with WASD
+* [X] Removed non-obtainable virtual Shi coin in Dominwood East 3
 * [ ] Pressing Escape in pause screen will simply unpause
 
 #### Code quality

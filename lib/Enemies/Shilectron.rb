@@ -5,7 +5,8 @@ class Shilectron < Enemy
         @gravity = false
         @hp = 3
         @strength = 3
-        @reduction = 1
+        @reduction = 2
+        @mindamage = 1
         @speed = 3
         @defense = 0
         @score = 8000
