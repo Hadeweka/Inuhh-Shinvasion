@@ -19,15 +19,17 @@ class Pacshi < Enemy
     end
     
     def custom_mechanics
-        if !@food && @saturation <= 0 && @map.type(@x + (@dir == :left ? -1 : 1)*(@xsize+5), @y) == Tiles::Exterior then
+        x_map_index = @x + (@dir == :left ? -1 : 1)*(@xsize+5)
+        if !@food && @saturation <= 0 && @map.type(x_map_index, @y) == Tiles::Exterior && !@map.invalid(x_map_index, @y) then
             @food = true
             @saturation = 200+rand(200)
             @window.play_sound("nom", 1, 0.6)
-            @window.add_tile(@x + (@dir == :left ? -1 : 1)*(@xsize+5), @y, nil)
+            @window.add_tile(x_map_index, @y, nil)
         elsif @food then
-            if rand(150) == 0 && !@map.type(@x + (@dir == :left ? -1 : 1)*(@xsize+50), @y) then
+            x_map_index_new = @x + (@dir == :left ? -1 : 1)*(@xsize+50)
+            if rand(150) == 0 && !@map.type(x_map_index_new, @y)  && !@map.invalid(x_map_index_new, @y) then
                 @food = false
-                @window.add_tile(@x + (@dir == :left ? -1 : 1)*(@xsize+50), @y, Tiles::Exterior)
+                @window.add_tile(x_map_index_new, @y, Tiles::Exterior)
                 @window.play_sound("plop", 1, 1.4)
             end
         end

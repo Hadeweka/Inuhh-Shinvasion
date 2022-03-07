@@ -26,11 +26,11 @@ class Shicavator < Enemy
                 ry = @y + offs_y - 50*(t) + edge_y
                 expr &&= !@map.solid?(rx + 25, ry)
                 expr &&= !@map.solid?(rx - 24, ry)
-                if @dir == :left && @map.solid?(rx, @y) then
+                if @dir == :left && @map.solid?(rx, @y) && !@map.invalid(rx, @y) then
                     @window.add_tile(rx, @y, nil)
                     @window.play_sound("nom", 1, 1.0)
                 end
-                if @dir == :right && @map.solid?(rx+1, @y)
+                if @dir == :right && @map.solid?(rx+1, @y) && !@map.invalid(rx+1, @y)
                     @window.add_tile(rx+1, @y, nil)
                     @window.play_sound("nom", 1, 1.0)
                 end

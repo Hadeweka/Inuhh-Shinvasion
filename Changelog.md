@@ -25,7 +25,7 @@
 * [X] Landing Koroshi will emit a shockwave which pushes Inuhh up and away
 * [X] Koroshi might charge at Inuhh under certain circumstances
 * [X] Shireen move with half speed (except in Doom difficulty)
-* [ ] Shicavator and Pacshi are not able to eat the map borders anymore
+* [X] Shicavator and Pacshi are not able to eat the map borders anymore
 
 ##### Levels
 
@@ -52,8 +52,8 @@
 * [X] Added coins and gems to Nautabyss 2-2
 * [X] Added additional rock to Nautabyss 2-2 to prevent premature death
 * [X] Simplified path to and return path from secret Shi coin in World 2
-* [ ] Added better path to Shi coin in Park Avenue 1-2
-* [ ] Removed some enemies in Park Avenue 1-2
+* [X] Added better path to Shi coin in Park Avenue 1-2
+* [X] Removed some enemies in Park Avenue 1-2
 
 #### Aesthetic changes
 
