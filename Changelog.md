@@ -23,6 +23,7 @@
 * [X] Koroshi crouch and subsequently jump at random and if damaged
 * [X] Landing Koroshi will emit a shockwave which pushes Inuhh up and away
 * [X] Koroshi might charge at Inuhh under certain circumstances
+* [X] Shireen move with half speed (except in Doom difficulty)
 
 ##### Levels
 
@@ -38,6 +39,11 @@
 * [X] Removed some enemies from Nautawood 2-2
 * [X] Marked safe points in Nautawood 2-2 with coins
 * [X] Simplified path to and return path from secret Shi coin in World 2
+* [X] Removed some enemies from Nautabyss 1
+* [X] Added additional helper platforms to Nautabyss 1-1
+* [X] Removed some enemies from Nautabyss 1-2
+* [X] Added some bones to Nautabyss 1-2
+* [X] Added warning sign to Nautabyss 1-2
 
 #### Aesthetic changes
 

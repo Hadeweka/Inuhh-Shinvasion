@@ -6,7 +6,7 @@ class Shireen < Enemy
         @spike = true
         @spike_strength = 666
         @defense = 1000
-        @speed = 2
+        @speed = (Difficulty.get > Difficulty::HARD ? 2 : 1)
         @mindamage = 666
         @minsdamage = 666
         @gravity = false
