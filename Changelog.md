@@ -26,6 +26,8 @@
 * [X] Koroshi might charge at Inuhh under certain circumstances
 * [X] Shireen move with half speed (except in Doom difficulty)
 * [X] Shicavator and Pacshi are not able to eat the map borders anymore
+* [X] Quanshi will only fluctuate if not looked at
+* [X] Shiturn are slower and take more hits
 
 ##### Levels
 
@@ -54,6 +56,8 @@
 * [X] Simplified path to and return path from secret Shi coin in World 2
 * [X] Added better path to Shi coin in Park Avenue 1-2
 * [X] Removed some enemies in Park Avenue 1-2
+* [X] Removed some enemies in Park Avenue 2-1
+* [X] Added better return path from Shi coin in Park Avenue 2-2
 
 #### Aesthetic changes
 
@@ -68,6 +72,7 @@
 * [X] Exiting level on new save now leads back to the world map
 * [X] Fixed Horshi and Turboshi not being able to be controlled with WASD
 * [X] Removed non-obtainable virtual Shi coin in Dominwood East 3
+* [X] Fixed performance drop if many enemies are in a level
 * [ ] Pressing Escape in pause screen will simply unpause
 
 #### Code quality

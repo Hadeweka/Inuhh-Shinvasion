@@ -4,8 +4,8 @@ class Shiturn < Enemy
         @strength = 3
         @score = 9000
         @world = 2
-        @speed = 2
-        @hp = (Difficulty.get > Difficulty::HARD ? 7 : 10)
+        @speed = (Difficulty.get > Difficulty::HARD ? 2 : 1)
+        @hp = (Difficulty.get > Difficulty::HARD ? 10 : 12)
         @reduction = 1
         @abyss_turn = false
         load_graphic("Shiturn")
