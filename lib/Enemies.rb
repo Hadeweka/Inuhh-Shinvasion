@@ -236,6 +236,10 @@ class Enemy < Entity
     def check_range(cam_x, cam_y)
         return (cam_x-50-@range .. cam_x+16*50+@range)===@x && (cam_y-50-@range .. cam_y+11*50+@range)===@y
     end
+
+    def check_draw_range(cam_x, cam_y)
+        return (cam_x-50-@xsize .. cam_x+16*50+@xsize)===@x && (cam_y-50-@ysize .. cam_y+11*50+@ysize)===@y
+    end
     
     def update(cam_x, cam_y)
         @synced_timer += @synced_animation_delay if @synced_animation_delay

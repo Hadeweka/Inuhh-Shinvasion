@@ -1268,7 +1268,7 @@ class Game < Window
                         r.counter == 0
                     end
                     @enemies.each do |e|
-                        e.draw if e.check_range(@camera_x, @camera_y)
+                        e.draw if e.check_draw_range(@camera_x, @camera_y)
                         if e.boss then
                             @boss_bar.draw(e.x-e.xsize, e.y-2*e.ysize-20, ZOrder::UI, e.xsize/25.0*e.hp.to_f/e.maxhp, 1.0)
                             @font.draw(Enemy_Datas.n_index[Enemy_Datas.c_index.index(e.class)], e.x-e.xsize, e.y-2*e.ysize-40, ZOrder::UI, 1.0, 1.0, 0xffff0000)

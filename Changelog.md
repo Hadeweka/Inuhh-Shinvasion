@@ -58,6 +58,8 @@
 * [X] Removed some enemies in Park Avenue 1-2
 * [X] Removed some enemies in Park Avenue 2-1
 * [X] Added better return path from Shi coin in Park Avenue 2-2
+* [X] Removed abyss at Shi coin path in Pond Bay 1
+* [X] Removed some enemies in Pond Bay 2
 
 #### Aesthetic changes
 
